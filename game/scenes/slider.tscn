@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cwpvlo1w3igme"]
+
+[ext_resource type="Texture2D" uid="uid://c0dhflnsnrycr" path="res://assets/menu_asset/slider_asset_rough.png" id="1_tdie8"]
+[ext_resource type="Texture2D" uid="uid://0er0bbh6mc2t" path="res://assets/menu_asset/thingy_slider_asset_rough.png" id="2_mhkcm"]
+[ext_resource type="Script" uid="uid://d1eo7885jvtxe" path="res://scripts/slider.gd" id="3_c2jh2"]
+
+[node name="Slider" type="Node2D" unique_id=767632755]
+script = ExtResource("3_c2jh2")
+
+[node name="SliderBody" type="Sprite2D" parent="." unique_id=1565312103]
+texture = ExtResource("1_tdie8")
+centered = false
+
+[node name="TextureButton" type="TextureButton" parent="SliderBody" unique_id=920748244]
+offset_left = -1.0
+offset_right = 97.0
+offset_bottom = 128.0
+texture_normal = ExtResource("2_mhkcm")
+
+[connection signal="button_down" from="SliderBody/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="SliderBody/TextureButton" to="." method="_on_texture_button_button_up"]
