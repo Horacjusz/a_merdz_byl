@@ -1,0 +1,77 @@
+extends Node2D
+
+# Slider returns value from 0 to 1
+# USAGE:
+#     slider.value
+
+@onready var slider_body: Sprite2D = $SliderBody
+@onready var slider_knob: TextureButton = $SliderBody/TextureButton
+
+var DEFAULT_VALUE = 0.5
+
+var PERCENTAGE_MARGIN = 0.02
+
+var MIN_KNOB_X = 0
+var MAX_KNOB_X = 1
+var KNOB_READY = false
+var BUTTON_PRESSED = false
+var KNOB_WIDTH = 0
+var value = DEFAULT_VALUE
+
+func place_knob_correctly(knob, body):
+	# please make all knob textures the same shape
+	# more like please be
+	
+	var height_diff = (body.texture.get_size() - knob.texture_normal.get_size()).y
+	
+	knob.position.y = body.position.y + (height_diff / 2)
+	
+	var body_length = slider_body.texture.get_size().x
+	
+	KNOB_WIDTH = knob.texture_normal.get_size().x
+	
+	MIN_KNOB_X = (slider_body.position.x + (PERCENTAGE_MARGIN * body_length))
+	MAX_KNOB_X = (slider_body.position.x + ((1 - PERCENTAGE_MARGIN) * body_length) - KNOB_WIDTH)
+	#print(MIN_KNOB_X)
+	#print(MAX_KNOB_X)
+	#print("diff: " + str(abs(MIN_KNOB_X - MAX_KNOB_X)))
+	knob.position.x = MIN_KNOB_X + (abs(MIN_KNOB_X - MAX_KNOB_X) * DEFAULT_VALUE)
+	
+	#print(str(MIN_KNOB_X) + " " + str(knob.position.x) + " " + str(MAX_KNOB_X))
+	
+	KNOB_READY = true
+
+func _ready() -> void:
+	
+	place_knob_correctly(slider_knob, slider_body)
+	
+
+func normalise_knob_position():
+	if KNOB_READY :
+		slider_knob.position.x = min(max(slider_knob.position.x, MIN_KNOB_X), MAX_KNOB_X)
+
+
+func _process(delta: float) -> void:
+	if BUTTON_PRESSED :
+		
+		var mouse_position = get_viewport().get_mouse_position()
+		
+		slider_knob.position.x = ((mouse_position.x - position.x) / scale.x) - (KNOB_WIDTH / 2)
+		normalise_knob_position()
+	
+	if KNOB_READY :
+		value = snapped((slider_knob.position.x - MIN_KNOB_X) / abs(MIN_KNOB_X - MAX_KNOB_X), 0.0001)
+		value = min(max(value, 0), 1)
+
+
+
+func _on_texture_button_button_down() -> void:
+	BUTTON_PRESSED = true
+	normalise_knob_position()
+	pass
+
+
+func _on_texture_button_button_up() -> void:
+	BUTTON_PRESSED = false
+	normalise_knob_position()
+	pass
