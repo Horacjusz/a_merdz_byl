@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dftrpkfy22rxb"]
 
-[ext_resource type="Texture2D" uid="uid://dv8ohedoluamc" path="res://assets/knight.png" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://bfx7naoqgcskq" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://di30glp2r0vhi" path="res://assets/character_asset/MC_right_rough.png" id="2_v6fml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
 size = Vector2(14, 14)
@@ -10,7 +10,9 @@ size = Vector2(14, 14)
 script = ExtResource("1_v6fml")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=767860461]
-texture = ExtResource("1_p0vlq")
+position = Vector2(1, 1.1920929e-07)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_v6fml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203216081]
 position = Vector2(1, 3)

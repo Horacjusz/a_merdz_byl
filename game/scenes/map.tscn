@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://dij1mw4v5tynn"]
 
-[ext_resource type="Texture2D" uid="uid://1d7eexj3bkmg" path="res://assets/icon.svg" id="1_ble1a"]
+[ext_resource type="Texture2D" uid="uid://cfdpsjh1rpysl" path="res://assets/character_asset/map_asset_rough.png" id="1_paxxb"]
+[ext_resource type="Texture2D" uid="uid://dqmqxujpm1n10" path="res://assets/character_asset/Evil_map_asset_rough.png" id="2_gldc4"]
 
 [node name="Book" type="TextureButton" unique_id=57389084]
-texture_normal = ExtResource("1_ble1a")
+offset_right = 381.0
+offset_bottom = 789.0
+scale = Vector2(0.17071244, 0.17071244)
+texture_normal = ExtResource("1_paxxb")
+texture_hover = ExtResource("2_gldc4")
