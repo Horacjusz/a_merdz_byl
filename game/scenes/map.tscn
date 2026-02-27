@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dij1mw4v5tynn"]
+
+[ext_resource type="Texture2D" uid="uid://1d7eexj3bkmg" path="res://assets/icon.svg" id="1_ble1a"]
+
+[node name="Book" type="TextureButton" unique_id=57389084]
+texture_normal = ExtResource("1_ble1a")
