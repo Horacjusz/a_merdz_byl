@@ -26,17 +26,20 @@ func place_knob_correctly(knob, body):
 	
 	KNOB_WIDTH = knob.texture_normal.get_size().x
 	
-	MIN_KNOB_X = (slider_body.position.x + (PERCENTAGE_MARGIN * body_length)) + position.x
-	MAX_KNOB_X = (slider_body.position.x + ((1 - PERCENTAGE_MARGIN) * body_length) - KNOB_WIDTH) + position.x
-	
+	MIN_KNOB_X = (slider_body.position.x + (PERCENTAGE_MARGIN * body_length))
+	MAX_KNOB_X = (slider_body.position.x + ((1 - PERCENTAGE_MARGIN) * body_length) - KNOB_WIDTH)
+	#print(MIN_KNOB_X)
+	#print(MAX_KNOB_X)
+	#print("diff: " + str(abs(MIN_KNOB_X - MAX_KNOB_X)))
 	knob.position.x = MIN_KNOB_X + (abs(MIN_KNOB_X - MAX_KNOB_X) * DEFAULT_VALUE)
+	
+	#print(str(MIN_KNOB_X) + " " + str(knob.position.x) + " " + str(MAX_KNOB_X))
 	
 	KNOB_READY = true
 
 func _ready() -> void:
 	
 	place_knob_correctly(slider_knob, slider_body)
-	print(position)
 	
 
 func normalise_knob_position():
@@ -49,8 +52,7 @@ func _process(delta: float) -> void:
 		
 		var mouse_position = get_viewport().get_mouse_position()
 		
-		slider_knob.position.x = mouse_position.x - (KNOB_WIDTH / 2)
-		
+		slider_knob.position.x = ((mouse_position.x - position.x) / scale.x) - (KNOB_WIDTH / 2)
 		normalise_knob_position()
 	
 	if KNOB_READY :
