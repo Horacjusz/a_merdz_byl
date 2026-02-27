@@ -1,5 +1,9 @@
 extends Node2D
 
+# Slider returns value from 0 to 1
+# USAGE:
+#     slider.value
+
 @onready var slider_body: Sprite2D = $SliderBody
 @onready var slider_knob: TextureButton = $SliderBody/TextureButton
 
@@ -12,7 +16,7 @@ var MAX_KNOB_X = 1
 var KNOB_READY = false
 var BUTTON_PRESSED = false
 var KNOB_WIDTH = 0
-var VALUE = DEFAULT_VALUE
+var value = DEFAULT_VALUE
 
 func place_knob_correctly(knob, body):
 	# please make all knob textures the same shape
@@ -56,8 +60,8 @@ func _process(delta: float) -> void:
 		normalise_knob_position()
 	
 	if KNOB_READY :
-		VALUE = snapped((slider_knob.position.x - MIN_KNOB_X) / abs(MIN_KNOB_X - MAX_KNOB_X), 0.0001)
-		VALUE = min(max(VALUE, 0), 1)
+		value = snapped((slider_knob.position.x - MIN_KNOB_X) / abs(MIN_KNOB_X - MAX_KNOB_X), 0.0001)
+		value = min(max(value, 0), 1)
 
 
 
