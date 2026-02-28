@@ -1,22 +1,70 @@
 extends Node2D
 
 
-@onready var level_container: Node2D = $LevelContainer
-@onready var player: CharacterBody2D = $Player
+@onready var world: Node = $World
+@onready var level_container: Node2D = $World/LevelContainer
+@onready var player: CharacterBody2D = $World/Player
+@onready var main_menu: Control = $UI/MainMenu
+@onready var transition_screen: Control = $UI/TransitionScreen
 
 var current_level: Node = null
 
 
 func _ready() -> void:
-	current_level = level_container.get_child(0)
 	LevelManager.connect("level_requested", Callable(self, "_on_level_requested"))
 
 
-func _load_level(target_level: String, target_door_id: String):	
+func _input(event) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		if current_level:
+			if main_menu.visible:
+				resume_game()
+			else:
+				pause_game()
+		else:
+			exit_game()
+
+
+func start_game() -> void:
+	transition_screen.transition()
+	await transition_screen.transition_finished
+	main_menu.hide()
+	main_menu.change_to_pause_menu()
+	player.visible = true
+	LevelManager.request_level("level_1", "start", true)
+
+
+func pause_game() -> void:
+	transition_screen.transition()
+	await transition_screen.transition_finished
+	world.process_mode = Node.PROCESS_MODE_DISABLED
+	main_menu.show()
+
+
+func resume_game() -> void:
+	transition_screen.transition()
+	await transition_screen.transition_finished
+	world.process_mode = Node.PROCESS_MODE_INHERIT
+	main_menu.hide()
+	
+	
+func exit_game() -> void:
+	get_tree().quit()
+
+
+func _load_level(
+	target_level: PackedScene, 
+	target_door_id: String, 
+	skip_transition_animation: bool = false,
+):
+	if not skip_transition_animation:
+		transition_screen.transition()
+		await transition_screen.transition_finished
+		
 	if current_level:
 		current_level.queue_free()
 		
-	current_level = load(target_level).instantiate()
+	current_level = target_level.instantiate()
 	level_container.add_child(current_level)
 	
 	if target_door_id:
@@ -37,5 +85,25 @@ func _position_player_at_door(target_door_id: String):
 	push_warning("Door with id '%s' not found!" % target_door_id)
 
 
-func _on_level_requested(target_level: String, target_door_id: String):
-	call_deferred("_load_level", target_level, target_door_id)
+func _on_level_requested(
+	target_level: PackedScene, 
+	target_door_id: String, 
+	skip_transition_animation: bool = false,
+):
+	call_deferred(
+		"_load_level", 
+		target_level, 
+		target_door_id, 
+		skip_transition_animation,
+	)
+
+
+func _on_main_menu_start_button_pressed() -> void:
+	if current_level:
+		resume_game()
+	else:
+		start_game()
+
+
+func _on_main_menu_exit_button_pressed() -> void:
+	exit_game()
