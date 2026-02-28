@@ -24,6 +24,10 @@ buses/default_bus_layout="uid://n6uqk1vc1sr1"
 LevelManager="*uid://02ktbkkth47a"
 FootstepSoundManager="*uid://bme557gdv5wj1"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/stretch/mode="viewport"
