@@ -1,9 +1,22 @@
 extends CharacterBody2D
 
+@onready var sprite: AnimatedSprite2D = $Sprite2D
+
 const SPEED = 100
 
 enum MOVE_DIRECTION {front, right, back, left}
 var direction = MOVE_DIRECTION.front
+
+func _play_idle():
+	match direction:
+		MOVE_DIRECTION.right:
+			sprite.play("right")
+		MOVE_DIRECTION.left:
+			sprite.play("left")
+		MOVE_DIRECTION.front:
+			sprite.play("front")
+		MOVE_DIRECTION.back:
+			sprite.play("back")
 
 func _physics_process(_delta: float) -> void:
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -16,6 +29,8 @@ func _physics_process(_delta: float) -> void:
 		direction = MOVE_DIRECTION.right
 	elif input_direction[0] < 0:
 		direction = MOVE_DIRECTION.left
+	
+	_play_idle()
 		
 	velocity = input_direction * SPEED
 	move_and_slide()

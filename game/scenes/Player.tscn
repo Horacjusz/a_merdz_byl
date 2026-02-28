@@ -1,17 +1,60 @@
 [gd_scene format=3 uid="uid://dftrpkfy22rxb"]
 
-[ext_resource type="Texture2D" uid="uid://rcuwd70wmoak" path="res://assets/knight.png" id="1_p0vlq"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://bfx7naoqgcskq" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://bgy3uhf6n4s8k" path="res://assets/character_asset/MC_back_rough.png" id="2_qu4a1"]
+[ext_resource type="Texture2D" uid="uid://di30glp2r0vhi" path="res://assets/character_asset/MC_right_rough.png" id="2_v6fml"]
+[ext_resource type="Texture2D" uid="uid://hhjhbj05nx1t" path="res://assets/character_asset/MC_front_rougg.png" id="3_70d11"]
+[ext_resource type="Texture2D" uid="uid://5dkkxrge115j" path="res://assets/character_asset/MC_left_rough.png" id="4_cw2d6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
-size = Vector2(14, 14)
+[sub_resource type="SpriteFrames" id="SpriteFrames_khinc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_70d11")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qu4a1")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cw2d6")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v6fml")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6fml"]
+radius = 5.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=211872251]
 script = ExtResource("1_v6fml")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=767860461]
-texture = ExtResource("1_p0vlq")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=989287074]
+position = Vector2(1, 1.1920929e-07)
+scale = Vector2(0.045, 0.045)
+sprite_frames = SubResource("SpriteFrames_khinc")
+animation = &"back"
+autoplay = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203216081]
-position = Vector2(1, 3)
-shape = SubResource("RectangleShape2D_v6fml")
+position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_v6fml")
