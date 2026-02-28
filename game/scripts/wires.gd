@@ -7,4 +7,4 @@ extends Riddle
 
 func _process(delta: float) -> void:
 	if blue_wire.is_right and green_wire.is_right and red_wire.is_right:
-		print("SOLVED")
+		solve()
