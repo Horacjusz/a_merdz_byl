@@ -9,7 +9,10 @@ var symbols = [
 	load("res://assets/riddles_asset/Symbol6.png"),
 	load("res://assets/riddles_asset/Symbol7.png"),
 	load("res://assets/riddles_asset/Symbol8.png"),
+	load("res://assets/riddles_asset/Symbol9.png"),
+	load("res://assets/riddles_asset/Symbol10.png"),
 ]
+const SYMBOLS_ON_SCREEN := 7
 
 @onready var circles = [$InnerCircle, $MiddleCircle, $OuterCircle]
 const RADIUSES: Array[float] = [105.0, 245.0, 390.0]
@@ -63,6 +66,7 @@ func shuffle_symbols():
 	var n := symbols.size()
 	var indices = range(n)
 	indices.shuffle()
+	indices = indices.slice(0, SYMBOLS_ON_SCREEN)
 	
 	solution = indices.pop_back()
 	# ensure that each circle will have the same number of symbols

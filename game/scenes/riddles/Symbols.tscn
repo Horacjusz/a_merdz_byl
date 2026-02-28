@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5y3f2ljdp87y" path="res://assets/riddles_asset/Inner_circle_asset_empty.png" id="3_o5rfj"]
 [ext_resource type="Texture2D" uid="uid://b7qa3wkvrvck1" path="res://assets/riddles_asset/Middle_circle_asset_empty.png" id="4_r44w0"]
 [ext_resource type="Texture2D" uid="uid://dlo0r1d3yvqi6" path="res://assets/riddles_asset/Outer_circle_asset_empty.png" id="5_yipw8"]
+[ext_resource type="Texture2D" uid="uid://c6k20vjq0sp4" path="res://assets/riddles_asset/Arrow_asset.png" id="6_o5rfj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5rfj"]
 radius = 185.0
@@ -54,5 +55,11 @@ shape = SubResource("CircleShape2D_r44w0")
 
 [node name="OuterCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=36842717]
 shape = SubResource("CircleShape2D_ws2qj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=109568494]
+position = Vector2(576, 127)
+rotation = 3.1415927
+scale = Vector2(0.20001079, 0.20001079)
+texture = ExtResource("6_o5rfj")
 
 [connection signal="input_event" from="Area2D" to="." method="input_event"]
