@@ -32,5 +32,7 @@ func _process(delta: float) -> void:
 		score -= 0.5 * delta
 	
 	if score < 0: score = 0
-	$Label.text = str(score)
-	if score > 1: solve()
+	if $Indicator/Arrow.rotation < PI/2:
+		$Indicator/Arrow.rotation = -PI/2 + score * PI
+	
+	if score >= 1: solve()
