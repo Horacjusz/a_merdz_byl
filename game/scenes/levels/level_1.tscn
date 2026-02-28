@@ -6,14 +6,15 @@
 [node name="Level1" type="Node2D" unique_id=721983992]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1739478005]
-position = Vector2(68, 22)
-scale = Vector2(0.1165201, 0.11484388)
+position = Vector2(165, 73)
+scale = Vector2(0.39419758, 0.38554695)
 texture = ExtResource("3_nsrm0")
 
 [node name="Doors" type="Node" parent="." unique_id=1195288818]
 
 [node name="Door" parent="Doors" unique_id=1364180732 instance=ExtResource("2_6iamk")]
-position = Vector2(68, 22)
+position = Vector2(165, 71)
+scale = Vector2(3.0726683, 3.0726683)
 door_id = "start"
 target_level = "res://scenes/levels/level_2.tscn"
 target_door_id = "start"

@@ -13,6 +13,6 @@ script = ExtResource("1_hpvv5")
 shape = SubResource("CircleShape2D_hpvv5")
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=743013289]
-position = Vector2(21, 0)
+position = Vector2(28, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

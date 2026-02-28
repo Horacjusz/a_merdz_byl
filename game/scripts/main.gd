@@ -12,10 +12,7 @@ func _ready() -> void:
 	LevelManager.connect("level_requested", Callable(self, "_on_level_requested"))
 
 
-func _load_level(target_level: String, target_door_id: String):
-	print(target_level)
-	
-	
+func _load_level(target_level: String, target_door_id: String):	
 	if current_level:
 		current_level.queue_free()
 		
