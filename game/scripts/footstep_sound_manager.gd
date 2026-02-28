@@ -19,6 +19,8 @@ const footstep_sounds = {
 func add_tilemap(tilemap: TileMapLayer) -> void :
 	tilemaps.push_back(tilemap)
 
+func remove_tilemap(tilemap: TileMapLayer) -> void:
+	tilemaps.erase(tilemap)
 
 func play_footstep(position: Vector2) -> void:
 	var tile_data = []
