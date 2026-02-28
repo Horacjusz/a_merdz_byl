@@ -1,38 +1,38 @@
 [gd_scene format=3 uid="uid://v5a5f0p2uw35"]
 
-[ext_resource type="Texture2D" uid="uid://cvsoryoc4bhfs" path="res://assets/riddles_asset/Cable_bg_asset.png" id="1_h0i5q"]
-[ext_resource type="Script" uid="uid://b1ia4ejsruiaq" path="res://scripts/wires.gd" id="1_i6uub"]
-[ext_resource type="Texture2D" uid="uid://c1kiuoq8rhpfs" path="res://assets/riddles_asset/Cable_slot_asset.png" id="2_81oka"]
-[ext_resource type="Texture2D" uid="uid://bw0yxcoy0mm55" path="res://assets/riddles_asset/Cable_red_inactive_slot_asset.png" id="3_0sh31"]
-[ext_resource type="Texture2D" uid="uid://b6rexyc875igt" path="res://assets/riddles_asset/Cable_green_inactive_slot_asset.png" id="4_escsa"]
-[ext_resource type="Texture2D" uid="uid://bha277ghbjnve" path="res://assets/riddles_asset/Cable_blue_inactive_slot_asset.png" id="5_tgln5"]
-[ext_resource type="Texture2D" uid="uid://byohcvt7h62nu" path="res://assets/riddles_asset/Green_left_asset.png" id="6_i6uub"]
-[ext_resource type="Texture2D" uid="uid://f2xjnrk3bkrr" path="res://assets/riddles_asset/Blue_left_asset.png" id="7_1od7k"]
-[ext_resource type="Script" uid="uid://cuvtd8u601sis" path="res://scripts/wire.gd" id="7_escsa"]
-[ext_resource type="Script" uid="uid://bv4kbgk6mi6qk" path="res://scripts/redslot.gd" id="7_tgln5"]
-[ext_resource type="Texture2D" uid="uid://pasmthxr7xwt" path="res://assets/riddles_asset/Red_left_asset.png" id="8_pn5va"]
+[ext_resource type="Script" uid="uid://b1ia4ejsruiaq" path="res://scripts/wires.gd" id="1_fqytr"]
+[ext_resource type="Texture2D" uid="uid://cvsoryoc4bhfs" path="res://assets/riddles_asset/Cable_bg_asset.png" id="2_xl610"]
+[ext_resource type="Texture2D" uid="uid://c1kiuoq8rhpfs" path="res://assets/riddles_asset/Cable_slot_asset.png" id="3_ue6t5"]
+[ext_resource type="Texture2D" uid="uid://f2xjnrk3bkrr" path="res://assets/riddles_asset/Blue_left_asset.png" id="4_ag4ka"]
+[ext_resource type="Script" uid="uid://cuvtd8u601sis" path="res://scripts/wire.gd" id="5_6atpe"]
+[ext_resource type="Texture2D" uid="uid://pasmthxr7xwt" path="res://assets/riddles_asset/Red_left_asset.png" id="6_fn1mj"]
+[ext_resource type="Texture2D" uid="uid://byohcvt7h62nu" path="res://assets/riddles_asset/Green_left_asset.png" id="7_n1c3d"]
+[ext_resource type="Script" uid="uid://bv4kbgk6mi6qk" path="res://scripts/redslot.gd" id="8_gu52q"]
+[ext_resource type="Texture2D" uid="uid://bw0yxcoy0mm55" path="res://assets/riddles_asset/Cable_red_inactive_slot_asset.png" id="9_8lbgw"]
+[ext_resource type="Texture2D" uid="uid://b6rexyc875igt" path="res://assets/riddles_asset/Cable_green_inactive_slot_asset.png" id="10_yrda2"]
+[ext_resource type="Texture2D" uid="uid://bha277ghbjnve" path="res://assets/riddles_asset/Cable_blue_inactive_slot_asset.png" id="11_57rhe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_escsa"]
 size = Vector2(48, 92)
 
 [node name="Wires" type="Node2D" unique_id=2055278583]
-script = ExtResource("1_i6uub")
+script = ExtResource("1_fqytr")
 
 [node name="background" type="Sprite2D" parent="." unique_id=833652485]
 position = Vector2(588, 325)
-texture = ExtResource("1_h0i5q")
+texture = ExtResource("2_xl610")
 
 [node name="slot1" type="Sprite2D" parent="background" unique_id=1461461064]
 position = Vector2(-467, -197.5)
-texture = ExtResource("2_81oka")
+texture = ExtResource("3_ue6t5")
 
 [node name="slot2" type="Sprite2D" parent="background" unique_id=1653859433]
 position = Vector2(-467, -14.5)
-texture = ExtResource("2_81oka")
+texture = ExtResource("3_ue6t5")
 
 [node name="slot3" type="Sprite2D" parent="background" unique_id=1512443184]
 position = Vector2(-467, 178)
-texture = ExtResource("2_81oka")
+texture = ExtResource("3_ue6t5")
 
 [node name="blueWire" type="TextureButton" parent="background" unique_id=1509814434]
 anchors_preset = -1
@@ -47,8 +47,8 @@ offset_bottom = -313.0
 grow_vertical = 2
 scale = Vector2(0.05, 1)
 mouse_filter = 1
-texture_normal = ExtResource("7_1od7k")
-script = ExtResource("7_escsa")
+texture_normal = ExtResource("4_ag4ka")
+script = ExtResource("5_6atpe")
 
 [node name="redWire" type="TextureButton" parent="background" unique_id=1673886090]
 anchors_preset = -1
@@ -56,15 +56,16 @@ anchor_left = 0.045
 anchor_top = 0.72400004
 anchor_right = 0.045
 anchor_bottom = 0.83900005
-offset_left = -522.89
-offset_top = -340.73602
-offset_right = 53.109997
-offset_bottom = -265.73602
+offset_left = -537.89
+offset_top = -325.73602
+offset_right = 38.109997
+offset_bottom = -250.73602
 grow_vertical = 2
-scale = Vector2(0.05, 1)
+rotation = -0.2617994
+scale = Vector2(0.1, 1)
 mouse_filter = 1
-texture_normal = ExtResource("8_pn5va")
-script = ExtResource("7_escsa")
+texture_normal = ExtResource("6_fn1mj")
+script = ExtResource("5_6atpe")
 
 [node name="greenWire" type="TextureButton" parent="background" unique_id=361739278]
 anchors_preset = -1
@@ -79,15 +80,15 @@ offset_bottom = -256.952
 grow_vertical = 2
 scale = Vector2(0.05, 1)
 mouse_filter = 1
-texture_normal = ExtResource("6_i6uub")
-script = ExtResource("7_escsa")
+texture_normal = ExtResource("7_n1c3d")
+script = ExtResource("5_6atpe")
 
 [node name="redslot" type="Area2D" parent="background" unique_id=692927368]
-script = ExtResource("7_tgln5")
+script = ExtResource("8_gu52q")
 
 [node name="redslot" type="Sprite2D" parent="background/redslot" unique_id=1070764343]
 position = Vector2(465, -194.5)
-texture = ExtResource("3_0sh31")
+texture = ExtResource("9_8lbgw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/redslot" unique_id=1787726457]
 position = Vector2(465, -197)
@@ -97,7 +98,7 @@ shape = SubResource("RectangleShape2D_escsa")
 
 [node name="greenslot" type="Sprite2D" parent="background/greenslot" unique_id=2070799420]
 position = Vector2(465, -11.5)
-texture = ExtResource("4_escsa")
+texture = ExtResource("10_yrda2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/greenslot" unique_id=29634128]
 position = Vector2(466, -13)
@@ -107,7 +108,7 @@ shape = SubResource("RectangleShape2D_escsa")
 
 [node name="blueslot" type="Sprite2D" parent="background/blueslot" unique_id=1328457995]
 position = Vector2(452, 181)
-texture = ExtResource("5_tgln5")
+texture = ExtResource("11_57rhe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/blueslot" unique_id=2119008853]
 position = Vector2(451, 181)
