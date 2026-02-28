@@ -16,5 +16,5 @@ texture = ExtResource("3_nsrm0")
 position = Vector2(165, 71)
 scale = Vector2(3.0726683, 3.0726683)
 door_id = "start"
-target_level = "res://scenes/levels/level_2.tscn"
+target_level_id = "level_2"
 target_door_id = "start"
