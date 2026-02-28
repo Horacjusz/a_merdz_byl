@@ -18,6 +18,8 @@ func _play_idle():
 			sprite.play("front")
 		MOVE_DIRECTION.back:
 			sprite.play("back")
+			
+
 
 func _physics_process(_delta: float) -> void:
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -35,3 +37,7 @@ func _physics_process(_delta: float) -> void:
 		
 	velocity = input_direction * SPEED
 	move_and_slide()
+	#_play_footstep()
+
+func _play_footstep() -> void :
+	FootstepSoundManager.play_footstep(global_position)

@@ -42,19 +42,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6fml"]
-radius = 5.0
-height = 14.0
+radius = 109.0
+height = 356.0
 
 [node name="Player" type="CharacterBody2D" unique_id=211872251]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_v6fml")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=989287074]
 position = Vector2(1, 1.1920929e-07)
-scale = Vector2(0.045, 0.045)
 sprite_frames = SubResource("SpriteFrames_khinc")
 animation = &"back"
 autoplay = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203216081]
-position = Vector2(1, 2)
+position = Vector2(3, 27)
 shape = SubResource("CapsuleShape2D_v6fml")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1308160541]
