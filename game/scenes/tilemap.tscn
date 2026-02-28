@@ -109,7 +109,7 @@ position = Vector2(-524, -184)
 
 [node name="Map" parent="Player" unique_id=1652269401 instance=ExtResource("3_fofut")]
 offset_right = 2081.0
-offset_bottom = 989.0
+offset_bottom = 1089.0
 script = ExtResource("4_i8yab")
 
 [connection signal="button_down" from="Player/Map" to="Player/Map" method="_on_button_down"]

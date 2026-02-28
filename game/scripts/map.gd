@@ -28,6 +28,6 @@ func _on_button_down() -> void:
 	
 	another_world = !another_world
 	tile_map2.collision_enabled = !tile_map2.collision_enabled
-	tile_map2.visible = !tile_map2.enabled
+	tile_map2.visible = !tile_map2.visible
 	tile_map1.collision_enabled = tile_map1.collision_enabled
-	tile_map1.visible = !tile_map1.enabled
+	tile_map1.visible = !tile_map1.visible
