@@ -3,25 +3,9 @@ extends Control
 
 signal start_game
 
-@onready var buttons_v_box: VBoxContainer = $MarginContainer/MainMenuContainer/VBoxContainer
 @onready var main_menu: MarginContainer = $MainMenuContainer
 @onready var options_menu: Control = $OptionsMenu
 @onready var credits_menu: Control = $CreditsMenu
-
-
-func _ready() -> void:
-	focus_button()
-
-func _on_visibility_changed() -> void:
-	if visible:
-		focus_button()
-
-
-func focus_button() -> void:
-	if buttons_v_box and buttons_v_box.get_child_count() > 0:
-		var first := buttons_v_box.get_child(0)
-		if first is Button:
-			first.grab_focus()
 
 
 func _on_start_button_pressed() -> void:

@@ -30,7 +30,7 @@ theme_override_icons/grabber_disabled = ExtResource("1_avo7q")
 theme_override_styles/slider = SubResource("StyleBoxTexture_5n1dd")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_cn63p")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_76v2a")
-max_value = 1.0
+max_value = 2.0
 step = 0.01
 script = ExtResource("1_nx6bu")
 
