@@ -19,9 +19,17 @@ config/icon="res://assets/icon.svg"
 
 buses/default_bus_layout="uid://n6uqk1vc1sr1"
 
+[autoload]
+
+LevelManager="*uid://02ktbkkth47a"
+
 [display]
 
 window/stretch/mode="viewport"
+
+[layer_names]
+
+2d_physics/layer_1="player"
 
 [physics]
 
