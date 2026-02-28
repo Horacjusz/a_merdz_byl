@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c2crc5eg6xj58" path="res://scripts/footstep_tilemap.gd" id="2_v3dip"]
 [ext_resource type="PackedScene" uid="uid://dij1mw4v5tynn" path="res://scenes/map.tscn" id="3_fofut"]
 [ext_resource type="Script" uid="uid://foyruhtg56ag" path="res://scripts/map.gd" id="4_i8yab"]
-[ext_resource type="PackedScene" uid="uid://t6j2g4bmghl2" path="res://scenes/bar.tscn" id="4_ld261"]
+[ext_resource type="PackedScene" path="res://scenes/bar.tscn" id="4_ld261"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ld261"]
 texture = ExtResource("1_v3dip")
