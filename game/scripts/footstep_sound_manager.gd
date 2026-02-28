@@ -40,12 +40,7 @@ func play_footstep(position: Vector2) -> void:
 	var audio_player = AudioStreamPlayer2D.new()
 	audio_player.stream = footstep_sound
 	get_tree().root.add_child(audio_player)
-	print(audio_player.global_position, " ", typeof(audio_player.global_position))
-	print(position, " ", typeof(position))
-	print()
 	audio_player.global_position = position
-	print()
-	print(audio_player.get_playback_position())
 	
 	audio_player.play()
 	await audio_player.finished
