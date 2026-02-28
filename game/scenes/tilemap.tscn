@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c2crc5eg6xj58" path="res://scripts/footstep_tilemap.gd" id="2_v3dip"]
 [ext_resource type="PackedScene" uid="uid://dij1mw4v5tynn" path="res://scenes/map.tscn" id="3_fofut"]
 [ext_resource type="Script" uid="uid://foyruhtg56ag" path="res://scripts/map.gd" id="4_i8yab"]
+[ext_resource type="PackedScene" uid="uid://t6j2g4bmghl2" path="res://scenes/bar.tscn" id="4_ld261"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ld261"]
 texture = ExtResource("1_v3dip")
@@ -89,12 +90,16 @@ script = ExtResource("2_v3dip")
 [node name="Player" parent="." unique_id=211872251 instance=ExtResource("2_38yc0")]
 position = Vector2(439, 226)
 
-[node name="Map" parent="." unique_id=1652269401 instance=ExtResource("3_fofut")]
-offset_left = 2704.9998
-offset_top = 828.0
-offset_right = 3085.9998
-offset_bottom = 1617.0
-scale = Vector2(0.18306877, 0.18306877)
+[node name="Bar" parent="Player" unique_id=324355739 instance=ExtResource("4_ld261")]
+position = Vector2(-1640, -660)
+scale = Vector2(2.1869562, 2.1869562)
+
+[node name="Map" parent="Player" unique_id=1652269401 instance=ExtResource("3_fofut")]
+offset_left = 786.6668
+offset_top = 389.99997
+offset_right = 1167.6667
+offset_bottom = 1179.0
+scale = Vector2(0.82110476, 0.82110476)
 script = ExtResource("4_i8yab")
 
-[connection signal="button_down" from="Map" to="Map" method="_on_button_down"]
+[connection signal="button_down" from="Player/Map" to="Player/Map" method="_on_button_down"]
