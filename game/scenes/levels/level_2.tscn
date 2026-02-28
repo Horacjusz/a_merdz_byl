@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://crvb87aam8mqp"]
+
+[ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="1_g2h2n"]
+[ext_resource type="Texture2D" uid="uid://1d7eexj3bkmg" path="res://assets/icon.svg" id="2_ra442"]
+
+[node name="Level2" type="Node2D" unique_id=1382378308]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1680332290]
+position = Vector2(946, 485)
+scale = Vector2(0.51562494, 0.53906244)
+texture = ExtResource("2_ra442")
+
+[node name="Doors" type="Node" parent="." unique_id=1501007872]
+
+[node name="Door" parent="Doors" unique_id=1364180732 instance=ExtResource("1_g2h2n")]
+position = Vector2(946, 487.99997)
+rotation = 3.1399806
+scale = Vector2(3.9100356, 3.9100356)
+door_id = "start"
+target_level = "res://scenes/levels/level_1.tscn"
+target_door_id = "start"
