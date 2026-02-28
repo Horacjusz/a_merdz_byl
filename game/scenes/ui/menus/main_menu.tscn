@@ -2,12 +2,39 @@
 
 [ext_resource type="Theme" uid="uid://ccrckhi0a0vy1" path="res://assets/themes/default_theme.tres" id="1_h1kbi"]
 [ext_resource type="Script" uid="uid://dksc8vc0cb3w1" path="res://scripts/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://nnjvsujl2aah" path="res://assets/menu_asset/start_asset_rough.png" id="3_ct055"]
+[ext_resource type="Texture2D" uid="uid://dcosq1rk3wf4f" path="res://assets/menu_asset/menu_background.png" id="3_dhmlp"]
 [ext_resource type="PackedScene" uid="uid://ckkh5fe5kb1t0" path="res://scenes/ui/menus/options_menu.tscn" id="3_whicr"]
-[ext_resource type="Texture2D" uid="uid://b5hnnolfft7f0" path="res://assets/menu_asset/settings_asset_rough.png" id="4_y4aia"]
-[ext_resource type="Texture2D" uid="uid://oej6senb52od" path="res://assets/menu_asset/creators_asset_rough.png" id="5_jk7nv"]
-[ext_resource type="Texture2D" uid="uid://dpos2d64382jd" path="res://assets/menu_asset/exit_asset_rough.png" id="6_dhmlp"]
+[ext_resource type="Texture2D" uid="uid://bx8d6q1gbuf4p" path="res://assets/menu_asset/button_new_game.png" id="4_h4dpu"]
+[ext_resource type="PackedScene" uid="uid://njh127odqgw3" path="res://scenes/ui/custom_button.tscn" id="4_nmbxx"]
+[ext_resource type="Texture2D" uid="uid://bpr4k74p8ktn" path="res://assets/menu_asset/button_tutorial.png" id="6_nmbxx"]
+[ext_resource type="Texture2D" uid="uid://co61p3yctfeor" path="res://assets/menu_asset/button_options.png" id="7_bl8wb"]
+[ext_resource type="Texture2D" uid="uid://c4ryqr8pyu22c" path="res://assets/menu_asset/button_creators.png" id="8_c8e1o"]
 [ext_resource type="PackedScene" uid="uid://du680hayqsj08" path="res://scenes/ui/menus/credits_menu.tscn" id="8_jk7nv"]
+[ext_resource type="Texture2D" uid="uid://bjh74kc81cabb" path="res://assets/menu_asset/button_exit.png" id="9_e7y46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smbs8"]
+atlas = ExtResource("4_h4dpu")
+region = Rect2(21, 30, 248, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4dpu"]
+atlas = ExtResource("4_h4dpu")
+region = Rect2(21, 30, 248, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmk8p"]
+atlas = ExtResource("6_nmbxx")
+region = Rect2(21, 30, 248, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmbxx"]
+atlas = ExtResource("7_bl8wb")
+region = Rect2(21, 30, 248, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl8wb"]
+atlas = ExtResource("8_c8e1o")
+region = Rect2(21, 30, 248, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8e1o"]
+atlas = ExtResource("9_e7y46")
+region = Rect2(21, 30, 248, 127)
 
 [node name="MainMenu" type="Control" unique_id=927219170]
 layout_mode = 3
@@ -21,70 +48,66 @@ size_flags_vertical = 3
 theme = ExtResource("1_h1kbi")
 script = ExtResource("1_l6cm7")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1938521533]
+[node name="Background" type="TextureRect" parent="." unique_id=159874336]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.13780656, 0.13561773, 0.23841137, 1)
+texture = ExtResource("3_dhmlp")
+expand_mode = 3
 
-[node name="MainMenuContainer" type="MarginContainer" parent="." unique_id=9029028]
+[node name="MainMenuContainer" type="VBoxContainer" parent="." unique_id=1476364834]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.07086805
+anchor_top = 0.43502474
+anchor_right = 0.37786806
+anchor_bottom = 0.88702476
+offset_left = 0.3600006
+offset_top = 0.10397339
+offset_right = 182.83832
+offset_bottom = 152.20795
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+scale = Vector2(0.65840733, 0.65840733)
+theme_override_constants/separation = 32
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer" unique_id=1280992128]
+[node name="GridContainer" type="GridContainer" parent="MainMenuContainer" unique_id=2133790334]
 layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
+size_flags_vertical = 8
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 2
 
-[node name="StartButton" type="TextureButton" parent="MainMenuContainer/VBoxContainer" unique_id=1548662135]
-custom_minimum_size = Vector2(247, 100)
+[node name="StartButton" parent="MainMenuContainer/GridContainer" unique_id=201973450 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_ct055")
-ignore_texture_size = true
-stretch_mode = 5
+texture_normal = SubResource("AtlasTexture_smbs8")
 
-[node name="ContinueButton" type="TextureButton" parent="MainMenuContainer/VBoxContainer" unique_id=879874329]
+[node name="ContinueButton" parent="MainMenuContainer/GridContainer" unique_id=1595256193 instance=ExtResource("4_nmbxx")]
 visible = false
-custom_minimum_size = Vector2(247, 100)
 layout_mode = 2
-texture_normal = ExtResource("5_jk7nv")
-ignore_texture_size = true
-stretch_mode = 5
+texture_normal = SubResource("AtlasTexture_h4dpu")
 
-[node name="OptionsButton" type="TextureButton" parent="MainMenuContainer/VBoxContainer" unique_id=2107520328]
-custom_minimum_size = Vector2(247, 100)
+[node name="TutorialButton" parent="MainMenuContainer/GridContainer" unique_id=251610320 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
-texture_normal = ExtResource("4_y4aia")
-ignore_texture_size = true
-stretch_mode = 5
+texture_normal = SubResource("AtlasTexture_nmk8p")
 
-[node name="CreditsButton" type="TextureButton" parent="MainMenuContainer/VBoxContainer" unique_id=1525104802]
-custom_minimum_size = Vector2(247, 100)
+[node name="OptionsButton" parent="MainMenuContainer/GridContainer" unique_id=1231411225 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
-texture_normal = ExtResource("5_jk7nv")
-ignore_texture_size = true
-stretch_mode = 5
+texture_normal = SubResource("AtlasTexture_nmbxx")
 
-[node name="ExitButton" type="TextureButton" parent="MainMenuContainer/VBoxContainer" unique_id=568429360]
-custom_minimum_size = Vector2(247, 100)
+[node name="CreditsButton" parent="MainMenuContainer/GridContainer" unique_id=345680808 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
-texture_normal = ExtResource("6_dhmlp")
-ignore_texture_size = true
-stretch_mode = 5
+texture_normal = SubResource("AtlasTexture_bl8wb")
 
-[node name="OptionsMenu" parent="." unique_id=129257362 instance=ExtResource("3_whicr")]
+[node name="ExitButton" parent="MainMenuContainer" unique_id=1162526388 instance=ExtResource("4_nmbxx")]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_c8e1o")
+
+[node name="OptionsMenu" parent="." unique_id=2129501986 instance=ExtResource("3_whicr")]
 visible = false
 layout_mode = 1
 
@@ -92,10 +115,20 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MainMenuContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MainMenuContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="MainMenuContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MainMenuContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MainMenuContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[node name="Label" type="Label" parent="." unique_id=188901830]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 73.0
+offset_right = 259.0
+offset_bottom = 118.0
+scale = Vector2(2.050739, 2.050739)
+text = "My New Game"
+
+[connection signal="pressed" from="MainMenuContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/GridContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/GridContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/GridContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/GridContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="exit_options_menu" from="OptionsMenu" to="." method="_on_options_menu_exit_options_menu"]
 [connection signal="exit_credits_menu" from="CreditsMenu" to="." method="_on_credits_menu_exit_credits_menu"]
