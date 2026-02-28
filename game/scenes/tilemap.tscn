@@ -193,10 +193,10 @@ position = Vector2(-1640, -660)
 scale = Vector2(2.1869562, 2.1869562)
 
 [node name="Map" parent="Player" unique_id=1652269401 instance=ExtResource("3_fofut")]
-offset_left = 1570.0001
-offset_top = 406.66663
-offset_right = 1951.0001
-offset_bottom = 1195.6666
+offset_left = 786.6668
+offset_top = 389.99997
+offset_right = 1167.6667
+offset_bottom = 1179.0
 scale = Vector2(0.82110476, 0.82110476)
 script = ExtResource("4_i8yab")
 
