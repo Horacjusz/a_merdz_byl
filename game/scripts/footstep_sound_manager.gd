@@ -4,12 +4,12 @@ var tilemaps: Array[TileMapLayer] = []
 
 const footstep_sounds = {
 	"default": [
-		preload("res://assets/sounds/Gate/alex_jauk-fence-gate-slammed-227012.mp3")
-	],
-	"stone": [
 		preload("res://assets/sounds/Footsteps/data_pion-st1-footstep-sfx-323053.mp3"),
 		preload("res://assets/sounds/Footsteps/data_pion-st2-footstep-sfx-323055.mp3"),
 		preload("res://assets/sounds/Footsteps/data_pion-st3-footstep-sfx-323056.mp3"),
+	],
+	"stone": [
+		preload("res://assets/sounds/Gate/alex_jauk-fence-gate-slammed-227012.mp3")
 	],
 	"bush": [
 		preload("res://assets/sounds/Item/item-pickup.mp3")
