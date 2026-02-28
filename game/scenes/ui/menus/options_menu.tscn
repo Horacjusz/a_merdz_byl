@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://ccrckhi0a0vy1" path="res://assets/themes/default_theme.tres" id="1_8sva7"]
 [ext_resource type="Script" uid="uid://bgt50n5b4llil" path="res://scripts/options_menu.gd" id="2_2lvmk"]
+[ext_resource type="PackedScene" uid="uid://cax670d0albqo" path="res://scenes/ui/volume_slider.tscn" id="3_1mjwn"]
 [ext_resource type="Texture2D" uid="uid://dpos2d64382jd" path="res://assets/menu_asset/exit_asset_rough.png" id="3_etp0f"]
-[ext_resource type="PackedScene" uid="uid://dlkdh3m5syx14" path="res://scripts/volume_slider.tscn" id="3_f8sf1"]
 
 [node name="OptionsMenu" type="Control" unique_id=129257362]
 layout_mode = 3
@@ -32,25 +32,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.9930299)
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 64
 
-[node name="VolumeSlider" parent="MarginContainer" unique_id=1720446351 instance=ExtResource("3_f8sf1")]
-position = Vector2(161, 114.80017)
+[node name="VBoxContainer1" type="VBoxContainer" parent="MarginContainer" unique_id=72047948]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer1" unique_id=1253302499]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MasterVolumeSlider" parent="MarginContainer/VBoxContainer1/VBoxContainer2" unique_id=945126614 instance=ExtResource("3_1mjwn")]
+layout_mode = 2
 bus_name = "Master"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=213323463]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer1" unique_id=213323463]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 alignment = 2
 
-[node name="BackButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1420526332]
+[node name="BackButton" type="TextureButton" parent="MarginContainer/VBoxContainer1/VBoxContainer3" unique_id=1420526332]
 custom_minimum_size = Vector2(247, 100)
 layout_mode = 2
+size_flags_vertical = 4
 texture_normal = ExtResource("3_etp0f")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer1/VBoxContainer3/BackButton" to="." method="_on_back_button_pressed"]

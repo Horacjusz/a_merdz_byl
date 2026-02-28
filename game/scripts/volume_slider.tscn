@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://dlkdh3m5syx14"]
-
-[ext_resource type="Script" uid="uid://cbnqq5ro1oms8" path="res://scripts/volume_slider.gd" id="1_p0o70"]
-[ext_resource type="PackedScene" uid="uid://cwpvlo1w3igme" path="res://scenes/ui/slider.tscn" id="2_wcnud"]
-
-[node name="VolumeSlider" type="Node2D" unique_id=1720446351]
-script = ExtResource("1_p0o70")
-
-[node name="Slider" parent="." unique_id=767632755 instance=ExtResource("2_wcnud")]

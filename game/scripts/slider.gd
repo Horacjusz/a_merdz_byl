@@ -67,6 +67,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_texture_button_button_down() -> void:
+	print("dupa pressed")
 	BUTTON_PRESSED = true
 	normalise_knob_position()
 	pass

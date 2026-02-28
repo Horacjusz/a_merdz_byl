@@ -3,9 +3,10 @@ extends Control
 
 signal start_game
 
-@onready var buttons_v_box: VBoxContainer = $MarginContainer/VBoxContainer
+@onready var buttons_v_box: VBoxContainer = $MarginContainer/MainMenuContainer/VBoxContainer
+@onready var main_menu: MarginContainer = $MainMenuContainer
 @onready var options_menu: Control = $OptionsMenu
-@onready var margin_container: MarginContainer = $MarginContainer
+@onready var credits_menu: Control = $CreditsMenu
 
 
 func _ready() -> void:
@@ -28,8 +29,13 @@ func _on_start_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	margin_container.visible = false
+	main_menu.visible = false
 	options_menu.visible = true
+
+
+func _on_credits_button_pressed() -> void:
+	main_menu.visible = false
+	credits_menu.visible = true
 
 
 func _on_exit_button_pressed() -> void:
@@ -38,8 +44,9 @@ func _on_exit_button_pressed() -> void:
 
 func _on_options_menu_exit_options_menu() -> void:
 	options_menu.visible = false
-	margin_container.visible = true
+	main_menu.visible = true
 
 
-func _on_credits_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_credits_menu_exit_credits_menu() -> void:
+	credits_menu.visible = false
+	main_menu.visible = true
