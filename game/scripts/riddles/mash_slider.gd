@@ -13,7 +13,6 @@ func jump() -> void:
 
 func get_height() -> float:
 	var pos: float = $Slider/Indicator.position.y
-	@warning_ignore("integer_division")
 	return (SLIDER_LEN/2 - pos) / SLIDER_LEN
 
 func _physics_process(delta: float) -> void:
