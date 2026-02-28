@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cax670d0albqo"]
+
+[ext_resource type="Texture2D" uid="uid://0er0bbh6mc2t" path="res://assets/menu_asset/thingy_slider_asset_rough.png" id="1_avo7q"]
+[ext_resource type="Script" uid="uid://cbnqq5ro1oms8" path="res://scripts/volume_slider.gd" id="1_nx6bu"]
+[ext_resource type="Texture2D" uid="uid://c0dhflnsnrycr" path="res://assets/menu_asset/slider_asset_rough.png" id="2_uhf2n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5n1dd"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+texture = ExtResource("2_uhf2n")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+expand_margin_top = 32.0
+expand_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cn63p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76v2a"]
+
+[node name="VolumeSlider" type="HSlider" unique_id=945126614]
+offset_right = 884.0
+offset_bottom = 128.0
+theme_override_icons/grabber = ExtResource("1_avo7q")
+theme_override_icons/grabber_highlight = ExtResource("1_avo7q")
+theme_override_icons/grabber_disabled = ExtResource("1_avo7q")
+theme_override_styles/slider = SubResource("StyleBoxTexture_5n1dd")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_cn63p")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_76v2a")
+max_value = 2.0
+step = 0.01
+script = ExtResource("1_nx6bu")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
