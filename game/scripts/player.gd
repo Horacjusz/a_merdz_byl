@@ -19,6 +19,7 @@ var current_player_move_state
 
 var previous_frame: int
 
+
 var ANIMATION_MAP = {
 	MOVE_DIRECTION.front: {
 		PLAYER_MOVE_STATE.idle: ["idle_front", 0],
@@ -38,11 +39,9 @@ var ANIMATION_MAP = {
 	}
 }
 
-
-func _update_animation(delta: float) -> void:
+func _update_animation():
 	sprite.play(ANIMATION_MAP[direction][current_player_move_state][0])
 	sprite.frame_progress = ANIMATION_MAP[direction][current_player_move_state][1]
-	
 	previous_frame = -1
 
 func _physics_process(delta: float) -> void:
@@ -64,29 +63,31 @@ func _physics_process(delta: float) -> void:
 		current_player_move_state = PLAYER_MOVE_STATE.idle
 	
 	if (previous_direction != direction) or (previous_player_move_state != current_player_move_state) :
-		_update_animation(delta)
+		_update_animation()
 	
 	if current_player_move_state == PLAYER_MOVE_STATE.moving :
-		if prev_timer < timer.time_left :
-			if previous_frame != sprite.frame :
-				previous_frame = sprite.frame
+		if previous_frame != sprite.frame :
+			previous_frame = sprite.frame
+			if _timer_finished_now() :
 				_play_footstep()
+	print(prev_timer, "    ", timer.time_left)
 	prev_timer = timer.time_left
 				
 	ANIMATION_MAP[direction][current_player_move_state][1] += delta
-
-	print(position)
 		
 	velocity = input_direction * SPEED
 	move_and_slide()
 	
+func _timer_finished_now() -> bool :
+	return (prev_timer < timer.time_left)
 
 func _ready() -> void :
 	timer.start(STEP_DURATION)
+	prev_timer = STEP_DURATION
 	current_player_move_state = PLAYER_MOVE_STATE.idle
 	direction = MOVE_DIRECTION.front
-	prev_timer = float('inf')
-	_update_animation(0)
+
+	_update_animation()
 
 func _play_footstep() -> void :
 	FootstepSoundManager.play_footstep(global_position)
