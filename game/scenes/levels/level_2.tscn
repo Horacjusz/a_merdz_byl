@@ -17,5 +17,5 @@ position = Vector2(946, 487.99997)
 rotation = 3.1399806
 scale = Vector2(3.9100356, 3.9100356)
 door_id = "start"
-target_level = "res://scenes/levels/level_1.tscn"
+target_level_id = "level_1"
 target_door_id = "start"
