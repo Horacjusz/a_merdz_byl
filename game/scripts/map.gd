@@ -1,7 +1,7 @@
 extends TextureButton
 
-@onready var tile_map1: TileMapLayer = $"../TileMapLayer"
-@onready var tile_map2: TileMapLayer = $"../TileMapLayer2"
+@onready var tile_map1: TileMapLayer = $"../../TileMapLayer"
+@onready var tile_map2: TileMapLayer = $"../../TileMapLayer2"
 
 
 var another_world=false
