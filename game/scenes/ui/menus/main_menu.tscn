@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cgoyj63c3ygiv"]
+
+[ext_resource type="Theme" uid="uid://ccrckhi0a0vy1" path="res://assets/themes/default_theme.tres" id="1_h1kbi"]
+[ext_resource type="Script" uid="uid://dksc8vc0cb3w1" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://nnjvsujl2aah" path="res://assets/menu_asset/start_asset_rough.png" id="3_ct055"]
+[ext_resource type="PackedScene" uid="uid://ckkh5fe5kb1t0" path="res://scenes/ui/menus/options_menu.tscn" id="3_whicr"]
+[ext_resource type="Texture2D" uid="uid://b5hnnolfft7f0" path="res://assets/menu_asset/settings_asset_rough.png" id="4_y4aia"]
+[ext_resource type="Texture2D" uid="uid://oej6senb52od" path="res://assets/menu_asset/creators_asset_rough.png" id="5_jk7nv"]
+[ext_resource type="Texture2D" uid="uid://dpos2d64382jd" path="res://assets/menu_asset/exit_asset_rough.png" id="6_dhmlp"]
+
+[node name="MainMenu" type="Control" unique_id=927219170]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_h1kbi")
+script = ExtResource("1_l6cm7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1938521533]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13780656, 0.13561773, 0.23841137, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=9029028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1280992128]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1548662135]
+custom_minimum_size = Vector2(247, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_ct055")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="OptionsButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=2107520328]
+custom_minimum_size = Vector2(247, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_y4aia")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CreditsButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1525104802]
+custom_minimum_size = Vector2(247, 100)
+layout_mode = 2
+texture_normal = ExtResource("5_jk7nv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=568429360]
+custom_minimum_size = Vector2(247, 100)
+layout_mode = 2
+texture_normal = ExtResource("6_dhmlp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="OptionsMenu" parent="." unique_id=129257362 instance=ExtResource("3_whicr")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="exit_options_menu" from="OptionsMenu" to="." method="_on_options_menu_exit_options_menu"]

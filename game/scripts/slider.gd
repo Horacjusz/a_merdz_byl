@@ -42,7 +42,6 @@ func place_knob_correctly(knob, body):
 	KNOB_READY = true
 
 func _ready() -> void:
-	
 	place_knob_correctly(slider_knob, slider_body)
 	
 
@@ -51,7 +50,7 @@ func normalise_knob_position():
 		slider_knob.position.x = min(max(slider_knob.position.x, MIN_KNOB_X), MAX_KNOB_X)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if BUTTON_PRESSED :
 		
 		var mouse_position = get_viewport().get_mouse_position()
@@ -62,6 +61,8 @@ func _process(delta: float) -> void:
 	if KNOB_READY :
 		value = snapped((slider_knob.position.x - MIN_KNOB_X) / abs(MIN_KNOB_X - MAX_KNOB_X), 0.0001)
 		value = min(max(value, 0), 1)
+		
+		
 
 
 
@@ -75,3 +76,8 @@ func _on_texture_button_button_up() -> void:
 	BUTTON_PRESSED = false
 	normalise_knob_position()
 	pass
+
+
+func set_value(new_value: float) -> void:
+	value = new_value
+	slider_knob.position.x = MIN_KNOB_X + (abs(MIN_KNOB_X - MAX_KNOB_X) * value) + position.x
