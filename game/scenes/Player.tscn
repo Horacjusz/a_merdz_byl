@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dftrpkfy22rxb"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://bfx7naoqgcskq" path="res://scripts/player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://bgy3uhf6n4s8k" path="res://assets/character_asset/MC_back_rough.png" id="2_qu4a1"]
-[ext_resource type="Texture2D" uid="uid://di30glp2r0vhi" path="res://assets/character_asset/MC_right_rough.png" id="2_v6fml"]
 [ext_resource type="Texture2D" uid="uid://hhjhbj05nx1t" path="res://assets/character_asset/MC_front_rougg.png" id="3_70d11"]
-[ext_resource type="Texture2D" uid="uid://5dkkxrge115j" path="res://assets/character_asset/MC_left_rough.png" id="4_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://buffxhrqbf1rx" path="res://assets/character_asset/Mc_left_stop_rough.png" id="4_qu4a1"]
+[ext_resource type="Texture2D" uid="uid://6ss1ua466s0q" path="res://assets/character_asset/MC_right_stop_rough.png" id="5_70d11"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_khinc"]
 animations = [{
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_cw2d6")
+"texture": ExtResource("4_qu4a1")
 }],
 "loop": true,
 "name": &"left",
@@ -34,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v6fml")
+"texture": ExtResource("5_70d11")
 }],
 "loop": true,
 "name": &"right",
@@ -52,7 +52,7 @@ script = ExtResource("1_v6fml")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=989287074]
 position = Vector2(1, 1.1920929e-07)
 sprite_frames = SubResource("SpriteFrames_khinc")
-animation = &"back"
+animation = &"right"
 autoplay = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203216081]
