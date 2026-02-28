@@ -57,7 +57,6 @@ texture = ExtResource("1_55lsm")
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
-4:4/0 = 0
 5:4/0 = 0
 6:4/0 = 0
 7:4/0 = 0
@@ -136,6 +135,7 @@ texture = ExtResource("1_55lsm")
 1:15/0 = 0
 2:15/0 = 0
 3:15/0 = 0
+4:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_fofut"]
 physics_layer_0/collision_layer = 1
