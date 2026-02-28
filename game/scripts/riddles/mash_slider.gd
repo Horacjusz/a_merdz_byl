@@ -1,24 +1,24 @@
 extends Riddle
 
 var velocity := 0.0
-const MAX_VELOCITY := 200
-const MIN_VELOCITY := -300
-const VELOCITY_CHANGE := 500
-const SLIDER_LEN := 256  # hacky :/
+const MAX_VELOCITY := 500.0
+const MIN_VELOCITY := -800.0
+const VELOCITY_CHANGE := 1500.0
+const SLIDER_LEN := 600.0  # hacky :/
 
 var score := 0.0
 
 func jump() -> void:
 	velocity = MAX_VELOCITY
-	
+
 func get_height() -> float:
-	var pos: float = $Slider/Indicator.position.x
+	var pos: float = $Slider/Indicator.position.y
 	return (SLIDER_LEN/2 - pos) / SLIDER_LEN
 
 func _physics_process(delta: float) -> void:
 	var ind = $"Slider/Indicator";
-	ind.position.x -= delta * velocity
-	ind.position.x = clampf(ind.position.x, -SLIDER_LEN/2, SLIDER_LEN/2)
+	ind.position.y -= delta * velocity
+	ind.position.y = clampf(ind.position.y, -SLIDER_LEN/2, SLIDER_LEN/2)
 	
 	velocity -= VELOCITY_CHANGE * delta
 	if velocity < MIN_VELOCITY: velocity = MIN_VELOCITY
@@ -31,5 +31,7 @@ func _process(delta: float) -> void:
 		score -= 0.5 * delta
 	
 	if score < 0: score = 0
-	$Label.text = str(score)
-	if score > 1: solved.emit()
+	if $Indicator/Arrow.rotation < PI/2:
+		$Indicator/Arrow.rotation = -PI/2 + score * PI
+	
+	if score >= 1: solve()

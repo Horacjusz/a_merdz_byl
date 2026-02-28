@@ -1,52 +1,52 @@
 [gd_scene format=3 uid="uid://blgjf8g5xak4d"]
 
 [ext_resource type="Script" uid="uid://d13ryb8yngpfh" path="res://scripts/riddles/mash_slider.gd" id="1_8c2yd"]
-[ext_resource type="Texture2D" uid="uid://1d7eexj3bkmg" path="res://assets/icon.svg" id="2_lx3n7"]
-
-[sub_resource type="Gradient" id="Gradient_fqt85"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.02409637, 0.22222222, 0.33333337, 0.44444445, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.12955844, 0.12955847, 0.12955844, 1, 1, 1, 1, 1, 0.12955862, 0.12955841, 0.12955844, 1, 0, 0, 0, 1)
-metadata/_snap_enabled = true
-metadata/_snap_count = 9
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8ny38"]
-gradient = SubResource("Gradient_fqt85")
-
-[sub_resource type="Gradient" id="Gradient_ajxi1"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_feo8c"]
-gradient = SubResource("Gradient_ajxi1")
+[ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="2_ajxi1"]
+[ext_resource type="Texture2D" uid="uid://tpc0qt0ohaqc" path="res://assets/riddles_asset/Broken_button_asset.png" id="2_lx3n7"]
+[ext_resource type="Texture2D" uid="uid://2be8veid58jg" path="res://assets/riddles_asset/Broken_push_asset.png" id="3_ajxi1"]
+[ext_resource type="Texture2D" uid="uid://b4ct3nkrj6212" path="res://assets/riddles_asset/Colormeter_asset.png" id="5_kywk7"]
+[ext_resource type="Texture2D" uid="uid://dbpwvptc7rodm" path="res://assets/riddles_asset/Colormeter_stripe.png" id="5_o7v1l"]
+[ext_resource type="Texture2D" uid="uid://6g2egtplwa7e" path="res://assets/riddles_asset/Colormeter_slider.png" id="6_42suw"]
+[ext_resource type="Texture2D" uid="uid://c6k20vjq0sp4" path="res://assets/riddles_asset/Arrow_asset.png" id="6_o7v1l"]
 
 [node name="MashSlider" type="Node2D" unique_id=1674942122]
 script = ExtResource("1_8c2yd")
 
+[node name="Background" type="Sprite2D" parent="." unique_id=389297898]
+position = Vector2(576, 324)
+scale = Vector2(0.55890656, 0.55890656)
+texture = ExtResource("2_ajxi1")
+
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1303995586]
-offset_left = 284.0
-offset_top = 232.0
-offset_right = 412.0
-offset_bottom = 360.0
+offset_left = 685.0
+offset_top = 190.0
+offset_right = 1211.0
+offset_bottom = 645.0
+scale = Vector2(0.2, 0.2)
+size_flags_vertical = 4
 texture_normal = ExtResource("2_lx3n7")
+texture_pressed = ExtResource("3_ajxi1")
+metadata/_edit_use_anchors_ = true
 
 [node name="Slider" type="Sprite2D" parent="." unique_id=745835303]
-position = Vector2(657, 303)
-rotation = 1.5707964
-scale = Vector2(1.3544567, 1.4880338)
-texture = SubResource("GradientTexture1D_8ny38")
-region_enabled = true
+position = Vector2(404.608, 340)
+scale = Vector2(0.41580787, 0.53331023)
+texture = ExtResource("5_o7v1l")
 region_rect = Rect2(0, 0, 256, 36)
 
 [node name="Indicator" type="Sprite2D" parent="Slider" unique_id=2113046220]
-position = Vector2(128, 0)
-scale = Vector2(0.024, 42)
-texture = SubResource("GradientTexture1D_feo8c")
+position = Vector2(7, 300)
+texture = ExtResource("6_42suw")
 
-[node name="Label" type="Label" parent="." unique_id=1217998930]
-offset_left = 837.0
-offset_top = 265.0
-offset_right = 933.0
-offset_bottom = 303.0
-text = "sdkalfas"
+[node name="Indicator" type="Sprite2D" parent="." unique_id=970185500]
+position = Vector2(737, 512)
+scale = Vector2(0.23000668, 0.23000665)
+texture = ExtResource("5_kywk7")
+offset = Vector2(0, -250)
+
+[node name="Arrow" type="Sprite2D" parent="Indicator" unique_id=924983906]
+rotation = -1.5707964
+texture = ExtResource("6_o7v1l")
+offset = Vector2(0, -200)
 
 [connection signal="button_down" from="TextureButton" to="." method="jump"]
