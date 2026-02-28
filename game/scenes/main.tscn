@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://b0edelq78t3rx"]
 
 [ext_resource type="Script" uid="uid://piscfwi4hgk0" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://cwpvlo1w3igme" path="res://scenes/slider.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node2D" unique_id=297181464]
 script = ExtResource("1_o5qli")
-
-[node name="Slider" parent="." unique_id=767632755 instance=ExtResource("2_0wfyh")]
-position = Vector2(132, 201)
