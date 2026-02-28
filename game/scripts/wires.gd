@@ -5,6 +5,6 @@ extends Riddle
 @onready var green_wire: TextureButton = $background/greenWire
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if blue_wire.is_right and green_wire.is_right and red_wire.is_right:
 		solve()
