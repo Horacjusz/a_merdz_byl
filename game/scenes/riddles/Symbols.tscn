@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cwxv7p74ef4qb"]
+
+[ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="1_bb2aw"]
+[ext_resource type="Script" uid="uid://el8f0f83oonj" path="res://scripts/riddles/symbols.gd" id="1_ws2qj"]
+[ext_resource type="Texture2D" uid="uid://b5y3f2ljdp87y" path="res://assets/riddles_asset/Inner_circle_asset_empty.png" id="3_o5rfj"]
+[ext_resource type="Texture2D" uid="uid://b7qa3wkvrvck1" path="res://assets/riddles_asset/Middle_circle_asset_empty.png" id="4_r44w0"]
+[ext_resource type="Texture2D" uid="uid://dlo0r1d3yvqi6" path="res://assets/riddles_asset/Outer_circle_asset_empty.png" id="5_yipw8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5rfj"]
+radius = 185.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r44w0"]
+radius = 325.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ws2qj"]
+radius = 475.0
+
+[node name="Symbols" type="Node2D" unique_id=1578316535]
+script = ExtResource("1_ws2qj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=293219898]
+position = Vector2(576, 324)
+scale = Vector2(0.55890656, 0.55890656)
+texture = ExtResource("1_bb2aw")
+
+[node name="InnerCircle" type="Sprite2D" parent="." unique_id=339678521]
+position = Vector2(576, 324)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_o5rfj")
+
+[node name="MiddleCircle" type="Sprite2D" parent="." unique_id=2124998917]
+position = Vector2(576, 324)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_r44w0")
+
+[node name="OuterCircle" type="Sprite2D" parent="." unique_id=223070838]
+position = Vector2(576, 324)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_yipw8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=442219544]
+position = Vector2(576, 324)
+scale = Vector2(0.35, 0.35)
+
+[node name="InnerCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=1281374101]
+z_index = 2
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_o5rfj")
+
+[node name="MiddleCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=841263215]
+z_index = 1
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("CircleShape2D_r44w0")
+
+[node name="OuterCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=36842717]
+shape = SubResource("CircleShape2D_ws2qj")
+
+[connection signal="input_event" from="Area2D" to="." method="input_event"]
