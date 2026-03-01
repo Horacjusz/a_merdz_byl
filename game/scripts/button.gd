@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 
 
 func _on_good_button_button_down() -> void:
+	$BrokenSound.play()
 	clicked.emit()
