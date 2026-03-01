@@ -118,6 +118,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Panel:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_nakos"]
 resource_name = "blacken"
@@ -234,6 +246,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_jh32y"]
 resource_name = "unblacken"
@@ -314,6 +338,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gw3fx"]
 _data = {
@@ -324,6 +360,14 @@ _data = {
 &"zwin": SubResource("Animation_wslke")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nakos"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 265
+border_width_top = 114
+border_width_right = 96
+border_width_bottom = 105
+border_color = Color(0, 0, 0, 1)
+
 [node name="Book" type="TextureButton" unique_id=57389084]
 z_index = 1
 z_as_relative = false
@@ -332,7 +376,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1015.0
 offset_top = 380.0
-offset_right = 1783.0078
+offset_right = 1783.0107
 offset_bottom = 812.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -349,9 +393,9 @@ anchor_left = -3.6242182
 anchor_top = -3.0213335
 anchor_right = 3.4974658
 anchor_bottom = 4.7332225
-offset_left = 0.19433594
+offset_left = 0.20507813
 offset_top = -0.2932129
-offset_right = -0.1616211
+offset_right = -0.171875
 offset_bottom = -0.2133789
 grow_horizontal = 2
 grow_vertical = 2
@@ -366,3 +410,13 @@ autoplay = &"RESET"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=779252110]
 stream = ExtResource("7_nakos")
 volume_db = -7.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1660085359]
+self_modulate = Color(1, 1, 1, 0)
+z_as_relative = false
+layout_mode = 0
+offset_left = -133.33333
+offset_right = 1783.3333
+offset_bottom = 1076.6666
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nakos")
