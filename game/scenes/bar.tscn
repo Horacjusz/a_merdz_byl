@@ -10,8 +10,15 @@
 shader = ExtResource("2_efgdo")
 shader_parameter/clip_y = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efgdo"]
+shader = ExtResource("2_efgdo")
+shader_parameter/clip_y = 0.0
+
 [node name="Bar" type="Node2D" unique_id=1840757942]
 script = ExtResource("2_x848m")
+
+[node name="Background_Inside" type="Sprite2D" parent="." unique_id=611478857]
+texture = ExtResource("4_efgdo")
 
 [node name="Inside" type="Sprite2D" parent="." unique_id=1106984718]
 material = SubResource("ShaderMaterial_2j1ym")
@@ -19,6 +26,8 @@ position = Vector2(0, 120)
 texture = ExtResource("2_qdsxc")
 
 [node name="Secondary_Inside" type="Sprite2D" parent="." unique_id=1029644858]
+self_modulate = Color(1, 1, 1, 0.5019608)
+material = SubResource("ShaderMaterial_efgdo")
 texture = ExtResource("4_efgdo")
 
 [node name="Bar_body" type="Sprite2D" parent="." unique_id=1569293733]
