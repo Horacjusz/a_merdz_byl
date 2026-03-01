@@ -92,10 +92,6 @@ func _on_slots_solved() -> void:
 	Inventory.gain_crystal()
 	pass # Replace with function body.
 
-func _on_ink_body_entered(body: Node2D) -> void:
-	Inventory.gain_crystal()
-	ink.hide()
-
 
 func _on_bad_button_clicked() -> void:
 	pass
