@@ -18,7 +18,7 @@ offset_bottom = 227.0
 texture_normal = ExtResource("2_luvaj")
 texture_pressed = ExtResource("3_pd4wt")
 
-[node name="BrokenSound" type="AudioStreamPlayer" parent="." unique_id=886316647]
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=886316647]
 stream = ExtResource("5_pd4wt")
 bus = &"VFX"
 
