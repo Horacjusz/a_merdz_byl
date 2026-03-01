@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://foyruhtg56ag" path="res://scripts/map.gd" id="5_85g3d"]
 [ext_resource type="PackedScene" path="res://scenes/transition_screen.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dky8wduw6gnt4" path="res://scenes/popup_message.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://cqejiql8oe6xj" path="res://scenes/cutscene.tscn" id="7_85g3d"]
 
 [node name="Main" type="Node2D" unique_id=297181464]
 script = ExtResource("1_o5qli")
@@ -37,6 +38,10 @@ position = Vector2(63, 147)
 [node name="PopupMessage" parent="World/HUD" unique_id=1021133839 instance=ExtResource("6_tipki")]
 visible = false
 position = Vector2(575, 325)
+
+[node name="Cutscene" parent="World/HUD" unique_id=291124688 instance=ExtResource("7_85g3d")]
+position = Vector2(575, 322)
+scale = Vector2(0.65, 0.65)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1697044310]
 layer = 10

@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" path="res://scenes/f_button.tscn" id="5_dnkej"]
 [ext_resource type="PackedScene" path="res://scenes/bad_button.tscn" id="6_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://clicfed6oj751" path="res://scenes/good_button.tscn" id="7_wtwp4"]
-[ext_resource type="PackedScene" uid="uid://ced105r81hntm" path="res://scenes/slots.tscn" id="8_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://bnmajxwkr6vtw" path="res://scenes/pickup.tscn" id="9_bahl2"]
 [ext_resource type="PackedScene" uid="uid://v5a5f0p2uw35" path="res://scenes/riddles/wires.tscn" id="9_excbq"]
 [ext_resource type="PackedScene" uid="uid://cbiu3mf4f1xj1" path="res://scenes/note.tscn" id="10_np2pn"]
 [ext_resource type="PackedScene" uid="uid://dc7fmwhug5fc" path="res://scenes/ink.tscn" id="11_excbq"]
+[ext_resource type="PackedScene" uid="uid://c1vrvgl7qhu11" path="res://scenes/last_door.tscn" id="12_iav0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ptlp"]
 size = Vector2(141.5, 133)
@@ -116,12 +116,14 @@ position = Vector2(943, 590)
 [node name="ink" parent="." unique_id=1373816258 instance=ExtResource("11_excbq")]
 position = Vector2(960, 568)
 
+[node name="LastDoor" parent="." unique_id=616772468 instance=ExtResource("12_iav0o")]
+position = Vector2(976, -9)
+
 [connection signal="body_entered" from="guzik1" to="." method="_on_guzik_1_body_entered"]
 [connection signal="body_exited" from="guzik1" to="." method="_on_guzik_1_body_exited"]
 [connection signal="body_entered" from="guzik2" to="." method="_on_guzik_2_body_entered"]
 [connection signal="body_exited" from="guzik2" to="." method="_on_guzik_2_body_exited"]
 [connection signal="clicked" from="CanvasLayer/good_button" to="." method="_on_good_button_clicked"]
-[connection signal="solved" from="CanvasLayer/slots" to="." method="_on_slots_solved"]
 [connection signal="body_entered" from="sloty" to="." method="_on_sloty_body_entered"]
 [connection signal="body_exited" from="sloty" to="." method="_on_sloty_body_exited"]
 [connection signal="body_entered" from="note1" to="." method="_on_note_1_body_entered"]

@@ -9,6 +9,7 @@ extends Node2D
 @onready var bar: Node2D = $World/HUD/Bar
 @onready var map: TextureButton = $World/HUD/Map
 @onready var popup_message: Node2D = $World/HUD/PopupMessage
+@onready var cutscene: Node2D = $World/HUD/Cutscene
 
 
 var current_level: Level = null
@@ -38,6 +39,7 @@ func start_game() -> void:
 	await transition_screen.transition_finished
 	main_menu.hide()
 	main_menu.change_to_pause_menu()
+	cutscene.play_prologue()
 	player.visible = true
 	LevelManager.request_level("level_1", "start", true)
 
@@ -122,6 +124,8 @@ func _on_player_sip_taken(sip_value: float) -> void:
 	pass # Replace with function body.
 
 func _on_player_last_door_open() -> void:
+	print("the DOOR opened")
+	
 	pass # Replace with function body.
 
 
