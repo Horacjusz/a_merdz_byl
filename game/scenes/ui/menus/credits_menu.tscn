@@ -46,5 +46,6 @@ stretch_mode = 5
 [node name="SelectionClick" type="AudioStreamPlayer" parent="." unique_id=1073474131]
 stream = ExtResource("3_scm5y")
 volume_db = -5.0
+bus = &"VFX"
 
 [connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

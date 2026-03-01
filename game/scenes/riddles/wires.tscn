@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b1ld2df6k4ssp" path="res://assets/gui_asset/Background_riddles_vine.png" id="4_gu52q"]
 [ext_resource type="Script" uid="uid://cuvtd8u601sis" path="res://scripts/wire.gd" id="5_6atpe"]
 [ext_resource type="Texture2D" uid="uid://pasmthxr7xwt" path="res://assets/riddles_asset/Red_left_asset.png" id="6_fn1mj"]
-[ext_resource type="AudioStream" uid="uid://buyyyn2jo1nuf" path="res://assets/sounds/Riddles/electricity.mp3" id="6_xl610"]
+[ext_resource type="AudioStream" uid="uid://3rxb8okhykuw" path="res://assets/sounds/Riddles/electricity.mp3" id="6_xl610"]
 [ext_resource type="Texture2D" uid="uid://byohcvt7h62nu" path="res://assets/riddles_asset/Green_left_asset.png" id="7_n1c3d"]
 [ext_resource type="AudioStream" uid="uid://dl6ffy83ike41" path="res://assets/sounds/Riddles/click.mp3" id="7_ue6t5"]
-[ext_resource type="Script" uid="uid://bv4kbgk6mi6qk" path="res://scripts/redslot.gd" id="8_gu52q"]
+[ext_resource type="Script" path="res://scripts/redslot.gd" id="8_gu52q"]
 [ext_resource type="Texture2D" uid="uid://bw0yxcoy0mm55" path="res://assets/riddles_asset/Cable_red_inactive_slot_asset.png" id="9_8lbgw"]
 [ext_resource type="Texture2D" uid="uid://b6rexyc875igt" path="res://assets/riddles_asset/Cable_green_inactive_slot_asset.png" id="10_yrda2"]
 [ext_resource type="Texture2D" uid="uid://bha277ghbjnve" path="res://assets/riddles_asset/Cable_blue_inactive_slot_asset.png" id="11_57rhe"]
@@ -76,9 +76,11 @@ script = ExtResource("5_6atpe")
 [node name="Electricity" type="AudioStreamPlayer" parent="background/blueWire" unique_id=529019950]
 stream = SubResource("AudioStreamRandomizer_xl610")
 pitch_scale = 1.5
+bus = &"VFX"
 
 [node name="Click" type="AudioStreamPlayer" parent="background/blueWire" unique_id=185595845]
 stream = ExtResource("7_ue6t5")
+bus = &"VFX"
 
 [node name="redWire" type="TextureButton" parent="background" unique_id=1673886090]
 anchors_preset = -1
@@ -99,9 +101,11 @@ script = ExtResource("5_6atpe")
 
 [node name="Electricity" type="AudioStreamPlayer" parent="background/redWire" unique_id=192329553]
 stream = ExtResource("6_xl610")
+bus = &"VFX"
 
 [node name="Click" type="AudioStreamPlayer" parent="background/redWire" unique_id=482274827]
 stream = ExtResource("7_ue6t5")
+bus = &"VFX"
 
 [node name="greenWire" type="TextureButton" parent="background" unique_id=361739278]
 anchors_preset = -1
@@ -122,9 +126,11 @@ script = ExtResource("5_6atpe")
 [node name="Electricity" type="AudioStreamPlayer" parent="background/greenWire" unique_id=1803987292]
 stream = ExtResource("6_xl610")
 pitch_scale = 2.01
+bus = &"VFX"
 
 [node name="Click" type="AudioStreamPlayer" parent="background/greenWire" unique_id=1711133229]
 stream = ExtResource("7_ue6t5")
+bus = &"VFX"
 
 [node name="redslot" type="Area2D" parent="background" unique_id=692927368]
 script = ExtResource("8_gu52q")
