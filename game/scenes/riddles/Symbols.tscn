@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7qa3wkvrvck1" path="res://assets/riddles_asset/Middle_circle_asset_empty.png" id="4_r44w0"]
 [ext_resource type="Texture2D" uid="uid://dlo0r1d3yvqi6" path="res://assets/riddles_asset/Outer_circle_asset_empty.png" id="5_yipw8"]
 [ext_resource type="Texture2D" uid="uid://c6k20vjq0sp4" path="res://assets/riddles_asset/Arrow_asset.png" id="6_o5rfj"]
+[ext_resource type="AudioStream" uid="uid://ca7r5b3eotqg3" path="res://assets/sounds/Riddles/fast-stone-slide.mp3" id="7_r44w0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5rfj"]
 radius = 185.0
@@ -15,6 +16,11 @@ radius = 325.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ws2qj"]
 radius = 475.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_13sum"]
+random_pitch = 1.005793
+streams_count = 1
+stream_0/stream = ExtResource("7_r44w0")
 
 [node name="Symbols" type="Node2D" unique_id=1578316535]
 script = ExtResource("1_ws2qj")
@@ -61,5 +67,8 @@ position = Vector2(576, 127)
 rotation = 3.1415927
 scale = Vector2(0.20001079, 0.20001079)
 texture = ExtResource("6_o5rfj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=309712949]
+stream = SubResource("AudioStreamRandomizer_13sum")
 
 [connection signal="input_event" from="Area2D" to="." method="input_event"]

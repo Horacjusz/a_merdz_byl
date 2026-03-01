@@ -48,6 +48,7 @@ func handle_event(circle_idx: int, event: InputEvent):
 		while direction * circle.rotation < direction * rot:
 			circle.rotation += direction * TAU
 		
+		$AudioStreamPlayer.play()
 		var tween = get_tree().create_tween()
 		tween.tween_property(circle, "rotation", rot, 0.1)
 		await tween.finished
