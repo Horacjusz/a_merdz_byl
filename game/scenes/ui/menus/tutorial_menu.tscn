@@ -30,6 +30,8 @@ func _ready() -> void:
 		return
 
 	texture_rect.texture = slides[current_index]
+	
+	previous_button.modulate.a = 0.0
 
 
 func build_slides_array() -> void:
@@ -51,12 +53,18 @@ func _on_previous_button_pressed() -> void:
 	if current_index > 0:
 		current_index -= 1
 		texture_rect.texture = slides[current_index]
+		next_button.modulate.a = 1.0
+	else:
+		previous_button.modulate.a = 0.0
 
 
 func _on_next_button_pressed() -> void:
 	if current_index < slides.size() - 1:
 		current_index += 1
 		texture_rect.texture = slides[current_index]
+		previous_button.modulate.a = 1.0
+	else:
+		next_button.modulate.a = 0.0
 
 
 func _on_back_button_pressed() -> void:
