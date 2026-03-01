@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera: Camera2D = $Camera2D
 
 const SPEED: float = 200.0
 var STEP_DURATION: float = 0.3
@@ -108,3 +109,8 @@ func _try_play_footstep() -> void:
 
 	footstep_cooldown_left = STEP_DURATION
 	FootstepSoundManager.play_footstep(global_position)
+
+
+func change_global_position(new_global_position: Vector2) -> void:
+	global_position = new_global_position
+	camera.reset_smoothing()
