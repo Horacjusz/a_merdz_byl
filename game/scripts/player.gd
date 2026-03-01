@@ -7,7 +7,7 @@ signal sip_taken(sip_value: float)
 @onready var camera: Camera2D = $Camera2D
 @onready var interaction_area: Area2D = $InteractionArea
 
-const SPEED: float = 200.0
+const SPEED: float = 300.0
 var STEP_DURATION: float = 0.3
 
 enum MOVE_DIRECTION { front, right, back, left }
@@ -51,7 +51,6 @@ func _save_current_anim_state() -> void:
 		"frame": sprite.frame,
 		"progress": sprite.frame_progress
 	}
-
 
 func _restore_anim_state(anim_name: String) -> void:
 	var s = anim_state.get(anim_name, null)
