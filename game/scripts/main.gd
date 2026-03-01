@@ -120,12 +120,12 @@ func _on_player_sip_taken(sip_value: float) -> void:
 
 
 func _on_map_map_opened() -> void:
-	map.open()
+	#map.open()
 	bar.change(false)
 	current_level.reveal_map()
 
 
 func _on_map_map_closed() -> void:
-	map.close()
+	#map.close()
 	bar.change(true)
 	current_level.hide_map()

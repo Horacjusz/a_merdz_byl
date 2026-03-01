@@ -23,12 +23,13 @@ func _process(_delta: float) -> void:
 func _on_button_down() -> void:
 	holding = true
 	is_right = false
+	$Electricity.play()
 
 func _on_button_up() -> void:
 	holding = false
 	if is_in:
 		is_right=true
-		#print("jest")
+		$Click.play(0.09)
 
 
 
