@@ -26,3 +26,4 @@ func _take_a_sip(player) -> void :
 		sip_sound.play()
 		player.take_a_sip(sip_value)
 		f_button.hide()
+		sip_taken = true
