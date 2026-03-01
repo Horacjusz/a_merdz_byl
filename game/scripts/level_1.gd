@@ -5,11 +5,12 @@ extends Level
 @onready var f_button: Sprite2D = $"CanvasLayer/F-button"
 @onready var bad_button: Sprite2D = $CanvasLayer/Bad_button
 @onready var good_button: Sprite2D = $CanvasLayer/good_button
-@onready var slots: Sprite2D = $CanvasLayer/slots
+@onready var wires: Node2D = $CanvasLayer/Wires
 @onready var pickup: Node2D = $CanvasLayer/pickup
 @onready var note_1: Area2D = $note1
 @onready var note_2: Area2D = $note2
 @onready var note_3: Area2D = $note3
+@onready var ink: Area2D = $ink
 
 var g1 = false
 var g2 = false
@@ -56,7 +57,7 @@ func _unhandled_input(event):
 		if g2:
 			good_button.show()
 		if sl:
-			slots.show()
+			wires.show()
 
 
 func _on_good_button_clicked() -> void:
@@ -72,7 +73,7 @@ func _on_sloty_body_entered(body: Node2D) -> void:
 func _on_sloty_body_exited(body: Node2D) -> void:
 	f_button.hide()
 	sl = false
-	slots.hide()
+	wires.hide()
 
 
 func _on_note_1_body_entered(body: Node2D) -> void:
@@ -85,3 +86,7 @@ func _on_note_2_body_entered(body: Node2D) -> void:
 
 func _on_note_3_body_entered(body: Node2D) -> void:
 	pickup.show_clue3()
+
+
+func _on_ink_body_entered(body: Node2D) -> void:
+	ink.hide()

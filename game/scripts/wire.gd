@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 		var direction = mouse_pos - global_position
 		rotation = direction.angle() - 0.05
 		var distance = global_position.distance_to(mouse_pos)
-		scale.x = distance / 550.0
+		scale.x = distance / 300.0
 
 
 
