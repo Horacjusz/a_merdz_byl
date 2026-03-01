@@ -4,11 +4,11 @@ extends Control
 signal start_button_pressed()
 signal exit_button_pressed()
 
-@onready var main_menu: MarginContainer = $MainMenuContainer
+@onready var main_menu: VBoxContainer = $MainMenuContainer
 @onready var options_menu: Control = $OptionsMenu
 @onready var credits_menu: Control = $CreditsMenu
-@onready var start_button: TextureButton = $MainMenuContainer/VBoxContainer/StartButton
-@onready var continue_button: TextureButton = $MainMenuContainer/VBoxContainer/ContinueButton
+@onready var start_button: TextureButton = $MainMenuContainer/GridContainer/StartButton
+@onready var continue_button: TextureButton = $MainMenuContainer/GridContainer/ContinueButton
 
 
 func _ready() -> void:
@@ -55,3 +55,7 @@ func _on_options_menu_exit_options_menu() -> void:
 func _on_credits_menu_exit_credits_menu() -> void:
 	credits_menu.visible = false
 	main_menu.visible = true
+
+
+func _on_tutorial_button_pressed() -> void:
+	pass # Replace with function body.

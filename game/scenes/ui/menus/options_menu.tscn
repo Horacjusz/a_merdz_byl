@@ -2,8 +2,22 @@
 
 [ext_resource type="Theme" uid="uid://ccrckhi0a0vy1" path="res://assets/themes/default_theme.tres" id="1_8sva7"]
 [ext_resource type="Script" uid="uid://bgt50n5b4llil" path="res://scripts/options_menu.gd" id="2_2lvmk"]
+[ext_resource type="Texture2D" uid="uid://dqdfbo2jxia14" path="res://assets/menu_asset/music.png" id="3_0gyrj"]
 [ext_resource type="PackedScene" uid="uid://cax670d0albqo" path="res://scenes/ui/volume_slider.tscn" id="3_1mjwn"]
-[ext_resource type="Texture2D" uid="uid://dpos2d64382jd" path="res://assets/menu_asset/exit_asset_rough.png" id="3_etp0f"]
+[ext_resource type="Texture2D" uid="uid://43eidaalv3se" path="res://assets/menu_asset/arrow.png" id="4_f8sf1"]
+[ext_resource type="Texture2D" uid="uid://bdtnloog5q4vk" path="res://assets/menu_asset/VFX.png" id="5_1mjwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xydh"]
+atlas = ExtResource("3_0gyrj")
+region = Rect2(11, 13, 99, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jugju"]
+atlas = ExtResource("5_1mjwn")
+region = Rect2(9, 12, 78, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5av45"]
+atlas = ExtResource("4_f8sf1")
+region = Rect2(11, 21, 108, 42)
 
 [node name="OptionsMenu" type="Control" unique_id=129257362]
 layout_mode = 3
@@ -15,51 +29,59 @@ grow_vertical = 2
 theme = ExtResource("1_8sva7")
 script = ExtResource("2_2lvmk")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=190846128]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1994485629]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.071
+anchor_top = 0.435
+anchor_right = 0.378
+anchor_bottom = 0.887
+offset_right = 183.0
+offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19803917, 0.122150995, 0.17244297, 1)
+scale = Vector2(0.658, 0.658)
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=667235202]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1, 0.9930299)
-theme_override_constants/margin_left = 128
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 128
-theme_override_constants/margin_bottom = 64
-
-[node name="VBoxContainer1" type="VBoxContainer" parent="MarginContainer" unique_id=72047948]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer1" unique_id=1253302499]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1075024187]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 32
 
-[node name="MasterVolumeSlider" parent="MarginContainer/VBoxContainer1/VBoxContainer2" unique_id=945126614 instance=ExtResource("3_1mjwn")]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=621264018]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer" unique_id=524452764]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4xydh")
+stretch_mode = 5
+
+[node name="MasterVolumeSlider" parent="VBoxContainer/VBoxContainer/VBoxContainer" unique_id=945126614 instance=ExtResource("3_1mjwn")]
 layout_mode = 2
 bus_name = "Master"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer1" unique_id=213323463]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" unique_id=1611069558]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-alignment = 2
 
-[node name="BackButton" type="TextureButton" parent="MarginContainer/VBoxContainer1/VBoxContainer3" unique_id=1420526332]
-custom_minimum_size = Vector2(247, 100)
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/VBoxContainer2" unique_id=149439938]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jugju")
+stretch_mode = 5
+
+[node name="VFXSlider" parent="VBoxContainer/VBoxContainer/VBoxContainer2" unique_id=672912052 instance=ExtResource("3_1mjwn")]
+layout_mode = 2
+bus_name = "VFX"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=474493528]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BackButton" type="TextureButton" parent="VBoxContainer/VBoxContainer2" unique_id=1420526332]
+custom_minimum_size = Vector2(123.5, 50)
 layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("3_etp0f")
+texture_normal = SubResource("AtlasTexture_5av45")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer1/VBoxContainer3/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
