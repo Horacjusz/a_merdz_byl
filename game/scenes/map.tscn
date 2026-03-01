@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cfdpsjh1rpysl" path="res://assets/character_asset/map_asset_rough.png" id="1_paxxb"]
 [ext_resource type="Texture2D" uid="uid://dqmqxujpm1n10" path="res://assets/character_asset/Evil_map_asset_rough.png" id="2_gldc4"]
 [ext_resource type="Texture2D" uid="uid://cj267kje6m4a8" path="res://assets/riddles_asset/Map1_asset.png" id="3_2lpho"]
+[ext_resource type="Texture2D" uid="uid://l0todu6j8g10" path="res://assets/riddles_asset/Map_nope_asset.png" id="3_jh32y"]
 [ext_resource type="Texture2D" uid="uid://ceh3f2twvmlrx" path="res://assets/riddles_asset/Map2_asset.png" id="4_nakos"]
 [ext_resource type="Texture2D" uid="uid://b6yte4cdieny6" path="res://assets/riddles_asset/Map3_asset.png" id="5_jh32y"]
 [ext_resource type="Texture2D" uid="uid://e26ndplbqgvt" path="res://assets/riddles_asset/Map5_asset.png" id="6_be0no"]
@@ -183,6 +184,33 @@ tracks/3/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_be0no"]
+resource_name = "nie powiem"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jh32y")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture_hover")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_jh32y")]
+}
+
 [sub_resource type="Animation" id="Animation_mlgqr"]
 resource_name = "rozwin"
 length = 1.25
@@ -355,6 +383,7 @@ tracks/5/keys = {
 _data = {
 &"RESET": SubResource("Animation_blm8a"),
 &"blacken": SubResource("Animation_nakos"),
+&"nie powiem": SubResource("Animation_be0no"),
 &"rozwin": SubResource("Animation_mlgqr"),
 &"unblacken": SubResource("Animation_jh32y"),
 &"zwin": SubResource("Animation_wslke")
