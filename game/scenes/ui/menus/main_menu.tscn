@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bpr4k74p8ktn" path="res://assets/menu_asset/button_tutorial.png" id="6_nmbxx"]
 [ext_resource type="Texture2D" uid="uid://co61p3yctfeor" path="res://assets/menu_asset/button_options.png" id="7_bl8wb"]
 [ext_resource type="Texture2D" uid="uid://c4ryqr8pyu22c" path="res://assets/menu_asset/button_creators.png" id="8_c8e1o"]
-[ext_resource type="PackedScene" uid="uid://du680hayqsj08" path="res://scenes/ui/menus/credits_menu.tscn" id="8_jk7nv"]
+[ext_resource type="PackedScene" uid="uid://dxca23tt7mgti" path="res://scenes/ui/menus/credits_menu.tscn" id="8_jk7nv"]
 [ext_resource type="Texture2D" uid="uid://bjh74kc81cabb" path="res://assets/menu_asset/button_exit.png" id="9_e7y46"]
 [ext_resource type="AudioStream" uid="uid://dvv6s21gm8ovu" path="res://assets/sounds/Menu/creatorshome-digital-click-357350.mp3" id="13_bl8wb"]
+[ext_resource type="PackedScene" uid="uid://btcjr2e00vkuf" path="res://scenes/ui/menus/tutorial_menu.tscn" id="14_e7y46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smbs8"]
 atlas = ExtResource("4_h4dpu")
@@ -109,6 +110,10 @@ texture_normal = SubResource("AtlasTexture_bl8wb")
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_c8e1o")
 
+[node name="TutorialMenu" parent="." unique_id=783237466 instance=ExtResource("14_e7y46")]
+visible = false
+layout_mode = 1
+
 [node name="OptionsMenu" parent="." unique_id=2129501986 instance=ExtResource("3_whicr")]
 visible = false
 layout_mode = 1
@@ -138,5 +143,6 @@ bus = &"VFX"
 [connection signal="pressed" from="MainMenuContainer/GridContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/GridContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="exit_tutorial_menu" from="TutorialMenu" to="." method="_on_tutorial_menu_exit_tutorial_menu"]
 [connection signal="exit_options_menu" from="OptionsMenu" to="." method="_on_options_menu_exit_options_menu"]
 [connection signal="exit_credits_menu" from="CreditsMenu" to="." method="_on_credits_menu_exit_credits_menu"]
