@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c1vrvgl7qhu11"]
+
+[ext_resource type="Script" uid="uid://hdetdux8f4hh" path="res://scripts/last_door.gd" id="1_0fdf6"]
+[ext_resource type="Script" uid="uid://i6k8b3nxq6w3" path="res://scripts/door_interaction.gd" id="1_nt00m"]
+[ext_resource type="PackedScene" path="res://scenes/f_button.tscn" id="2_0fdf6"]
+[ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/Player.tscn" id="4_otgde"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otgde"]
+radius = 303.08084
+
+[node name="LastDoor" type="Node2D" unique_id=616772468]
+script = ExtResource("1_0fdf6")
+
+[node name="Range" type="Area2D" parent="." unique_id=936177807]
+script = ExtResource("1_nt00m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1247552239]
+shape = SubResource("CircleShape2D_otgde")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1603489370]
+
+[node name="F-button" parent="CanvasLayer" unique_id=900367709 instance=ExtResource("2_0fdf6")]
+visible = false
+position = Vector2(576, 557)
+
+[node name="Player" parent="." unique_id=211872251 instance=ExtResource("4_otgde")]
+position = Vector2(396, 1)
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

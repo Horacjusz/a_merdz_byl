@@ -8,6 +8,7 @@ extends Node2D
 @onready var transition_screen: Control = $UI/TransitionScreen
 @onready var bar: Node2D = $World/HUD/Bar
 @onready var map: TextureButton = $World/HUD/Map
+@onready var popup_message: Node2D = $World/HUD/PopupMessage
 
 
 var current_level: Level = null
@@ -26,6 +27,10 @@ func _input(event) -> void:
 				pause_game()
 		else:
 			exit_game()
+
+func _process(delta: float) -> void:
+	if Inventory.check_display() :
+		popup_message.display(load("res://assets/gui_asset/info_frame4.png"))
 
 
 func start_game() -> void:
@@ -113,19 +118,20 @@ func _on_main_menu_exit_button_pressed() -> void:
 
 
 func _on_player_sip_taken(sip_value: float) -> void:
-	print(sip_value)
 	bar.increase(-sip_value)
-	
+	pass # Replace with function body.
+
+func _on_player_last_door_open() -> void:
 	pass # Replace with function body.
 
 
 func _on_map_map_opened() -> void:
-	map.open()
+	#map.open()
 	bar.change(false)
 	current_level.reveal_map()
 
 
 func _on_map_map_closed() -> void:
-	map.close()
+	#map.close()
 	bar.change(true)
 	current_level.hide_map()

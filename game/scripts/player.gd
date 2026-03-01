@@ -2,12 +2,13 @@ class_name Player
 extends CharacterBody2D
 
 signal sip_taken(sip_value: float)
+signal last_door_open
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera: Camera2D = $Camera2D
 @onready var interaction_area: Area2D = $InteractionArea
 
-const SPEED: float = 200.0
+const SPEED: float = 300.0
 var STEP_DURATION: float = 0.3
 
 enum MOVE_DIRECTION { front, right, back, left }
@@ -51,7 +52,6 @@ func _save_current_anim_state() -> void:
 		"frame": sprite.frame,
 		"progress": sprite.frame_progress
 	}
-
 
 func _restore_anim_state(anim_name: String) -> void:
 	var s = anim_state.get(anim_name, null)
@@ -109,12 +109,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("press_F_to_pay_respect") :
 		var overlapping = interaction_area.get_overlapping_areas()
 		for area in overlapping :
-			print(area)
 			if area.has_method("interact") :
 				area.interact(self)
 				
 func take_a_sip(sip_value: float) :
 	sip_taken.emit(sip_value)
+	
+func open_last_door() :
+	last_door_open.emit()
 
 func _try_play_footstep() -> void:
 	if footstep_cooldown_left > 0.0:
