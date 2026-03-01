@@ -9,6 +9,7 @@ extends Node2D
 @onready var bar: Node2D = $World/HUD/Bar
 @onready var map: TextureButton = $World/HUD/Map
 @onready var popup_message: Node2D = $World/HUD/PopupMessage
+@onready var cutscene: Node2D = $World/HUD/Cutscene
 
 
 var current_level: Level = null
@@ -38,6 +39,7 @@ func start_game() -> void:
 	await transition_screen.transition_finished
 	main_menu.hide()
 	main_menu.change_to_pause_menu()
+	await cutscene.play_prologue()
 	player.visible = true
 	LevelManager.request_level("level_1", "entrance", true)
 
@@ -122,6 +124,24 @@ func _on_player_sip_taken(sip_value: float) -> void:
 	pass # Replace with function body.
 
 func _on_player_last_door_open() -> void:
+	var new_frames = [
+		load("res://assets/map_asset/door_screen.png"),
+		load("res://assets/map_asset/door_screen1.png"),
+		load("res://assets/map_asset/door_screen2.png"),
+		load("res://assets/map_asset/door_screen3.png")
+	]
+	
+	var max_length = min(Inventory.crystal_count + 1, new_frames.size())
+	new_frames = new_frames.slice(0, max_length)
+	if new_frames.size() < 4 :
+		new_frames.push_back(load("res://assets/cutscene_asset/Vine_ending.png"))
+	else :
+		new_frames.push_back(load("res://assets/map_asset/door_screen_full.png"))
+		new_frames.push_back(load("res://assets/cutscene_asset/Escape_ending.png"))
+	
+	await cutscene.play_door(new_frames)
+	
+	exit_game()
 	pass # Replace with function body.
 
 
@@ -135,3 +155,9 @@ func _on_map_map_closed() -> void:
 	#map.close()
 	bar.change(true)
 	current_level.hide_map()
+
+
+func _on_bar_insanity_reached() -> void:
+	await cutscene.play_insane_ending()
+	exit_game()
+	pass # Replace with function body.

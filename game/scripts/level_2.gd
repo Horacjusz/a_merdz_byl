@@ -42,6 +42,8 @@ func _on_note_body_entered(body: Node2D) -> void:
 
 
 func _on_ink_body_entered(body: Node2D) -> void:
+	
+	Inventory.gain_crystal()
 	ink.hide()
 
 

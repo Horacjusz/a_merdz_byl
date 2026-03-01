@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="4_hhfj6"]
 [ext_resource type="PackedScene" uid="uid://cbiu3mf4f1xj1" path="res://scenes/note.tscn" id="5_fmg3e"]
 [ext_resource type="PackedScene" uid="uid://bnmajxwkr6vtw" path="res://scenes/pickup.tscn" id="6_pimnq"]
-[ext_resource type="PackedScene" uid="uid://2dnv41vr3ncl" path="res://scenes/f_button.tscn" id="7_2bnyt"]
+[ext_resource type="PackedScene" path="res://scenes/f_button.tscn" id="7_2bnyt"]
 [ext_resource type="PackedScene" uid="uid://cwxv7p74ef4qb" path="res://scenes/riddles/Symbols.tscn" id="8_n6eey"]
 [ext_resource type="PackedScene" uid="uid://ced105r81hntm" path="res://scenes/slots.tscn" id="8_pimnq"]
+[ext_resource type="PackedScene" uid="uid://c1vrvgl7qhu11" path="res://scenes/last_door.tscn" id="10_2bnyt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qepi"]
 size = Vector2(134.5, 129)
@@ -71,6 +72,9 @@ scale = Vector2(0.6341423, 0.6341423)
 
 [node name="Symbols" parent="CanvasLayer" unique_id=452912837 instance=ExtResource("8_n6eey")]
 visible = false
+
+[node name="LastDoor" parent="." unique_id=616772468 instance=ExtResource("10_2bnyt")]
+position = Vector2(2178, -83)
 
 [connection signal="body_entered" from="slots" to="." method="_on_slots_body_entered"]
 [connection signal="body_exited" from="slots" to="." method="_on_slots_body_exited"]
