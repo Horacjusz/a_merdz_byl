@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b0edelq78t3rx"]
 
 [ext_resource type="Script" uid="uid://piscfwi4hgk0" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://43s5tlf27h2x" path="res://scenes/bar.tscn" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/Player.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cgoyj63c3ygiv" path="res://scenes/ui/menus/main_menu.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dij1mw4v5tynn" path="res://scenes/map.tscn" id="4_tipki"]
+[ext_resource type="Script" uid="uid://foyruhtg56ag" path="res://scripts/map.gd" id="5_85g3d"]
 [ext_resource type="PackedScene" path="res://scenes/transition_screen.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=297181464]
@@ -13,14 +16,30 @@ script = ExtResource("1_o5qli")
 [node name="LevelContainer" type="Node2D" parent="World" unique_id=603807136]
 
 [node name="Player" parent="World" unique_id=211872251 instance=ExtResource("3_sugp2")]
-visible = false
-position = Vector2(23, 20)
+position = Vector2(574, 323)
+
+[node name="HUD" type="CanvasLayer" parent="World" unique_id=1099977074]
+
+[node name="Map" parent="World/HUD" unique_id=57389084 instance=ExtResource("4_tipki")]
+offset_left = 1019.0
+offset_top = 374.00003
+offset_right = 248.0
+offset_bottom = 515.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5_85g3d")
+
+[node name="Bar" parent="World/HUD" unique_id=1840757942 instance=ExtResource("3_o6xl0")]
+position = Vector2(63, 147)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1697044310]
+layer = 2
 
 [node name="MainMenu" parent="UI" unique_id=927219170 instance=ExtResource("4_jyhfs")]
 
 [node name="TransitionScreen" parent="UI" unique_id=553853311 instance=ExtResource("5_tbgi4")]
 
+[connection signal="button_down" from="World/HUD/Map" to="World/HUD/Map" method="_on_button_down"]
+[connection signal="map_clicked" from="World/HUD/Map" to="." method="_on_map_map_clicked"]
 [connection signal="exit_button_pressed" from="UI/MainMenu" to="." method="_on_main_menu_exit_button_pressed"]
 [connection signal="start_button_pressed" from="UI/MainMenu" to="." method="_on_main_menu_start_button_pressed"]

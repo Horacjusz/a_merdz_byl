@@ -13,6 +13,8 @@ var value: float = 0.0
 func _ready() -> void:
 	_set_position_to_value()
 	_update_clip()
+	increase(1)
+	freeze()
 	
 func freeze() :
 	BAR_FREEZED = true
@@ -20,12 +22,18 @@ func freeze() :
 func unfreeze() :
 	BAR_FREEZED = false
 
+func change(another_world: bool) :
+	if another_world:
+		freeze()
+	else:
+		unfreeze()
+	
+	
+	
+
 func increase(increase_value: float) -> void:
 	unfreeze()
 	_target_percentage = clamp(_target_percentage + increase_value, 0.0, 1.0)
-
-func start() :
-	increase(1)
 
 func _set_position_to_value() -> void:
 	inside.position.y = Y_TRAVEL * (1.0 - value)

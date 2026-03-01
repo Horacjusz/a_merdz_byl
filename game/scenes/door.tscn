@@ -5,6 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpvv5"]
 
 [node name="Door" type="Area2D" unique_id=1364180732]
+scale = Vector2(4, 4)
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_hpvv5")
