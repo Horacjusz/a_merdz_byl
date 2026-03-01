@@ -33,9 +33,10 @@ func hide_map() -> void:
 
 
 func _on_note_body_entered(body: Node2D) -> void:
-	pickup.show_clue2()
+	pickup.show_clue3()
 
 func _on_zagadka_body_entered(body: Node2D) -> void:
+	print(body)
 	f_button.show()
 	zag=true
 
@@ -54,8 +55,6 @@ func _unhandled_input(event):
 
 func _on_symbols_solved() -> void:
 	Inventory.gain_crystal()
-	pass # Replace with function body.
-	#inventory add
 
 
 func _on_slots_body_entered(body: Node2D) -> void:
