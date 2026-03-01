@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://clicfed6oj751"]
 
 [ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="1_hf5qs"]
+[ext_resource type="Script" uid="uid://bxysqi82wc26u" path="res://scripts/button.gd" id="2_4h0f7"]
 [ext_resource type="Texture2D" uid="uid://r76f57cl3rel" path="res://assets/riddles_asset/Normal_button_asset.png" id="2_c4dsh"]
 [ext_resource type="Texture2D" uid="uid://8o2hdm8wddev" path="res://assets/riddles_asset/Normal_pushed_asset.png" id="3_4h0f7"]
 
 [node name="good_button" type="Sprite2D" unique_id=1445447044]
 texture = ExtResource("1_hf5qs")
+script = ExtResource("2_4h0f7")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1077320351]
+[node name="good_button" type="TextureButton" parent="." unique_id=1077320351]
 offset_left = -247.0
 offset_top = -232.0
 offset_right = 276.0
 offset_bottom = 224.0
 texture_normal = ExtResource("2_c4dsh")
 texture_pressed = ExtResource("3_4h0f7")
+
+[connection signal="button_down" from="good_button" to="." method="_on_good_button_button_down"]

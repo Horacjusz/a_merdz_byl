@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bnmajxwkr6vtw"]
+
+[ext_resource type="Script" uid="uid://2dvhw0v2q2yf" path="res://scripts/pickup.gd" id="1_e7thr"]
+[ext_resource type="Texture2D" uid="uid://dy2c1b3i4ubxo" path="res://assets/riddles_asset/Clue1_asset.png" id="2_x6vvs"]
+[ext_resource type="Texture2D" uid="uid://c6vdrg57srd82" path="res://assets/riddles_asset/Clue2_asset.png" id="3_rv5yo"]
+[ext_resource type="Texture2D" uid="uid://byvu65flnu0gp" path="res://assets/riddles_asset/Clue3_asset.png" id="4_45bd5"]
+
+[node name="pickup" type="Node2D" unique_id=385704875]
+script = ExtResource("1_e7thr")
+
+[node name="Timer" type="Timer" parent="." unique_id=530610458]
+
+[node name="clue1" type="Sprite2D" parent="." unique_id=796257236]
+visible = false
+texture = ExtResource("2_x6vvs")
+
+[node name="clue2" type="Sprite2D" parent="." unique_id=298933904]
+visible = false
+texture = ExtResource("3_rv5yo")
+
+[node name="clue3" type="Sprite2D" parent="." unique_id=930180535]
+visible = false
+texture = ExtResource("4_45bd5")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
