@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="1_nhaqc"]
 [ext_resource type="Texture2D" uid="uid://tpc0qt0ohaqc" path="res://assets/riddles_asset/Broken_button_asset.png" id="2_luvaj"]
-[ext_resource type="Script" uid="uid://bxysqi82wc26u" path="res://scripts/button.gd" id="2_pd4wt"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="2_pd4wt"]
 [ext_resource type="Texture2D" uid="uid://2be8veid58jg" path="res://assets/riddles_asset/Broken_push_asset.png" id="3_pd4wt"]
+[ext_resource type="AudioStream" uid="uid://by4u73cjxwpsj" path="res://assets/sounds/Buttons/broken-buzz.mp3" id="5_pd4wt"]
 
 [node name="Bad_button" type="Sprite2D" unique_id=222468981]
 texture = ExtResource("1_nhaqc")
@@ -16,5 +17,8 @@ offset_right = 269.0
 offset_bottom = 227.0
 texture_normal = ExtResource("2_luvaj")
 texture_pressed = ExtResource("3_pd4wt")
+
+[node name="BrokenSound" type="AudioStreamPlayer" parent="." unique_id=886316647]
+stream = ExtResource("5_pd4wt")
 
 [connection signal="button_down" from="TextureButton" to="." method="_on_good_button_button_down"]
