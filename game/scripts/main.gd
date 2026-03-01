@@ -124,8 +124,24 @@ func _on_player_sip_taken(sip_value: float) -> void:
 	pass # Replace with function body.
 
 func _on_player_last_door_open() -> void:
-	print("the DOOR opened")
+	var new_frames = [
+		load("res://assets/map_asset/door_screen.png"),
+		load("res://assets/map_asset/door_screen1.png"),
+		load("res://assets/map_asset/door_screen2.png"),
+		load("res://assets/map_asset/door_screen3.png")
+	]
 	
+	var max_length = min(Inventory.crystal_count + 1, new_frames.size())
+	new_frames = new_frames.slice(0, max_length)
+	if new_frames.size() < 4 :
+		new_frames.push_back(load("res://assets/cutscene_asset/Vine_ending.png"))
+	else :
+		new_frames.push_back(load("res://assets/map_asset/door_screen_full.png"))
+		new_frames.push_back(load("res://assets/cutscene_asset/Escape_ending.png"))
+	
+	await cutscene.play_door(new_frames)
+	
+	exit_game()
 	pass # Replace with function body.
 
 
