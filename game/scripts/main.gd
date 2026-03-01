@@ -39,7 +39,7 @@ func start_game() -> void:
 	main_menu.hide()
 	main_menu.change_to_pause_menu()
 	player.visible = true
-	LevelManager.request_level("level_2", "entrance", true)
+	LevelManager.request_level("level_1", "entrance", true)
 
 
 func pause_game() -> void:
