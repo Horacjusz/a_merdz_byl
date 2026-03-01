@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="2_ajxi1"]
 [ext_resource type="Texture2D" uid="uid://tpc0qt0ohaqc" path="res://assets/riddles_asset/Broken_button_asset.png" id="2_lx3n7"]
 [ext_resource type="Texture2D" uid="uid://2be8veid58jg" path="res://assets/riddles_asset/Broken_push_asset.png" id="3_ajxi1"]
+[ext_resource type="AudioStream" uid="uid://dxnhdmmgcm06g" path="res://assets/sounds/Buttons/universfield-click-button-140881.mp3" id="5_j3qqp"]
 [ext_resource type="Texture2D" uid="uid://b4ct3nkrj6212" path="res://assets/riddles_asset/Colormeter_asset.png" id="5_kywk7"]
 [ext_resource type="Texture2D" uid="uid://dbpwvptc7rodm" path="res://assets/riddles_asset/Colormeter_stripe.png" id="5_o7v1l"]
 [ext_resource type="Texture2D" uid="uid://6g2egtplwa7e" path="res://assets/riddles_asset/Colormeter_slider.png" id="6_42suw"]
 [ext_resource type="Texture2D" uid="uid://c6k20vjq0sp4" path="res://assets/riddles_asset/Arrow_asset.png" id="6_o7v1l"]
+[ext_resource type="AudioStream" uid="uid://0jq16ippvh4p" path="res://assets/sounds/Riddles/sine.mp3" id="9_bhf5j"]
 
-[node name="MashSlider" type="Node2D" unique_id=1674942122]
+[node name="MashSlider" type="Node2D" unique_id=1526741285]
 script = ExtResource("1_8c2yd")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=389297898]
@@ -27,6 +29,9 @@ size_flags_vertical = 4
 texture_normal = ExtResource("2_lx3n7")
 texture_pressed = ExtResource("3_ajxi1")
 metadata/_edit_use_anchors_ = true
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="TextureButton" unique_id=1305109594]
+stream = ExtResource("5_j3qqp")
 
 [node name="Slider" type="Sprite2D" parent="." unique_id=745835303]
 position = Vector2(404.608, 340)
@@ -48,5 +53,9 @@ offset = Vector2(0, -250)
 rotation = -1.5707964
 texture = ExtResource("6_o7v1l")
 offset = Vector2(0, -200)
+
+[node name="ArrowSound" type="AudioStreamPlayer" parent="." unique_id=1654937970]
+stream = ExtResource("9_bhf5j")
+parameters/looping = true
 
 [connection signal="button_down" from="TextureButton" to="." method="jump"]
