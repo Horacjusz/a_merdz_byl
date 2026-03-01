@@ -87,6 +87,9 @@ func _on_note_2_body_entered(body: Node2D) -> void:
 func _on_note_3_body_entered(body: Node2D) -> void:
 	pickup.show_clue3()
 
+func _on_slots_solved() -> void:
+	Inventory.gain_crystal()
+	pass # Replace with function body.
 
 func _on_ink_body_entered(body: Node2D) -> void:
 	ink.hide()
