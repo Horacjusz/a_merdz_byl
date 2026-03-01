@@ -41,6 +41,11 @@ func change(another_world: bool) :
 	else:
 		unfreeze()
 
+
+
+func take_a_sip(sip_value: float) -> void :
+	increase(-sip_value)
+
 func increase(increase_value: float) -> void:
 	_target_percentage = clamp(_target_percentage + increase_value, 0.0, 1.0)
 	unfreeze()
@@ -76,3 +81,6 @@ func _process(delta: float) -> void:
 		bar_expired.emit()
 	if value == 1 :
 		insanity_reached.emit()
+	if value == 0 :
+		increase(1)
+		freeze()
