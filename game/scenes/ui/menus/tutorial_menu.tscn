@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://btcjr2e00vkuf"]
+
+[ext_resource type="Texture2D" uid="uid://43eidaalv3se" path="res://assets/menu_asset/arrow.png" id="3_byiv1"]
+
+[sub_resource type="GDScript" id="GDScript_iaidv"]
+script/source = "extends Control
+
+signal exit_tutorial_menu
+
+@onready var texture_rect: TextureRect = $TextureRect
+@onready var next_button: TextureButton = $MarginContainer/NextButton
+
+const FOLDER_PATH := \"res://assets/tutorial_asset/\"
+const FILE_PREFIX := \"Tutorial\"
+const FILE_EXTENSION := \".png\"
+
+var slides: Array[Texture2D] = []
+var current_index: int = 0
+
+
+func _ready() -> void:
+	build_slides_array()
+
+	if slides.is_empty():
+		push_warning(\"No tutorial slides found.\")
+		return
+
+	texture_rect.texture = slides[current_index]
+
+
+func _on_next_button_pressed() -> void:
+	current_index += 1
+
+	if current_index >= slides.size():
+		emit_signal(\"exit_tutorial_menu\")
+		return
+
+	texture_rect.texture = slides[current_index]
+
+
+func build_slides_array() -> void:
+	slides.clear()
+
+	var index := 1
+
+	while true:
+		var path := FOLDER_PATH + FILE_PREFIX + str(index) + FILE_EXTENSION
+
+		if not ResourceLoader.exists(path):
+			break
+
+		slides.append(load(path))
+		index += 1
+"
+
+[node name="TutorialMenu" type="Control" unique_id=783237466]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_iaidv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1851668999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1464326330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1399389993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NextButton" type="TextureButton" parent="MarginContainer" unique_id=2020050140]
+custom_minimum_size = Vector2(247, 100)
+layout_mode = 2
+size_flags_vertical = 8
+texture_normal = ExtResource("3_byiv1")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[connection signal="pressed" from="MarginContainer/NextButton" to="." method="_on_next_button_pressed"]
