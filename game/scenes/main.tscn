@@ -21,10 +21,8 @@ position = Vector2(574, 323)
 [node name="HUD" type="CanvasLayer" parent="World" unique_id=1099977074]
 
 [node name="Map" parent="World/HUD" unique_id=57389084 instance=ExtResource("4_tipki")]
-offset_left = 1019.0
-offset_top = 374.00003
-offset_right = 248.0
-offset_bottom = 515.0
+offset_right = 244.0
+offset_bottom = 521.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("5_85g3d")

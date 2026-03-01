@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ceh3f2twvmlrx" path="res://assets/riddles_asset/Map2_asset.png" id="4_nakos"]
 [ext_resource type="Texture2D" uid="uid://b6yte4cdieny6" path="res://assets/riddles_asset/Map3_asset.png" id="5_jh32y"]
 [ext_resource type="Texture2D" uid="uid://e26ndplbqgvt" path="res://assets/riddles_asset/Map5_asset.png" id="6_be0no"]
+[ext_resource type="AudioStream" uid="uid://cukv3ow3e8rbb" path="res://assets/sounds/Map/freesound_community-page-flip-47177.mp3" id="7_nakos"]
 
 [sub_resource type="Animation" id="Animation_blm8a"]
 length = 0.001
@@ -56,6 +57,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1015, 380)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_mlgqr"]
@@ -109,6 +122,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(1015, 380), Vector2(80, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wslke"]
 resource_name = "zwin"
@@ -161,6 +186,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(80, 0), Vector2(1015, 380)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gw3fx"]
 _data = {
@@ -175,7 +212,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1015.0
 offset_top = 380.0
-offset_right = 1783.0066
+offset_right = 1783.0083
 offset_bottom = 812.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -188,3 +225,5 @@ libraries/ = SubResource("AnimationLibrary_gw3fx")
 autoplay = &"RESET"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=779252110]
+stream = ExtResource("7_nakos")
+volume_db = -7.0

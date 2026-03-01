@@ -6,6 +6,7 @@ var Y_TRAVEL := 120.0 * scale.y
 var CLIP_HEIGHT := 50 * scale.y
 var BAR_FREEZED = false
 
+# travel_rate is showing how much bar is gonna raise in 1 second
 @export var travel_rate := 0.1
 var _target_percentage: float = 0.0
 var value: float = 0.0
@@ -27,9 +28,7 @@ func change(another_world: bool) :
 		freeze()
 	else:
 		unfreeze()
-	
-	
-	
+
 
 func increase(increase_value: float) -> void:
 	unfreeze()

@@ -23,7 +23,5 @@ func change(another_world: bool) :
 	else:
 		animation_player.play("rozwin")
 
-	
-
 func _on_button_down() -> void:
 	map_clicked.emit()

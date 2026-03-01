@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://k1q4q1igkdq3" path="res://scripts/bar.gdshader" id="2_efgdo"]
 [ext_resource type="Texture2D" uid="uid://cuo44ju48bb0s" path="res://assets/gui_asset/bar_inside.png" id="2_qdsxc"]
 [ext_resource type="Script" uid="uid://b05gui5rploaa" path="res://scripts/bar.gd" id="2_x848m"]
+[ext_resource type="Texture2D" uid="uid://cntbhyn0lvnwi" path="res://assets/gui_asset/bar_inside_white.png" id="4_efgdo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2j1ym"]
 shader = ExtResource("2_efgdo")
@@ -16,6 +17,9 @@ script = ExtResource("2_x848m")
 material = SubResource("ShaderMaterial_2j1ym")
 position = Vector2(0, 120)
 texture = ExtResource("2_qdsxc")
+
+[node name="Secondary_Inside" type="Sprite2D" parent="." unique_id=1029644858]
+texture = ExtResource("4_efgdo")
 
 [node name="Bar_body" type="Sprite2D" parent="." unique_id=1569293733]
 texture = ExtResource("2_bwlfd")

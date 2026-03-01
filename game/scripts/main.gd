@@ -117,9 +117,4 @@ func _on_map_map_clicked() -> void:
 	bar.change(current_level.another_world)
 	current_level.change_world()
 	
-	#if current_level.another_world:
-		#bar.freeze()
-	#else:
-		#current_level.animation_player.play("rozwin")
-		#bar.unfreeze()
 	pass # Replace with function body.
