@@ -76,7 +76,7 @@ func _update_animation() -> void:
 func _physics_process(delta: float) -> void:
 	footstep_cooldown_left = maxf(0.0, footstep_cooldown_left - delta)
 
-	var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	var previous_player_move_state: int = current_player_move_state
 	var previous_direction: int = direction
