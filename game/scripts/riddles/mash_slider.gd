@@ -8,6 +8,9 @@ const SLIDER_LEN := 600.0  # hacky :/
 
 var score := 0.0
 
+func _ready():
+	super._ready()
+
 func jump() -> void:
 	velocity = MAX_VELOCITY
 

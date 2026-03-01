@@ -22,7 +22,7 @@ random_pitch = 1.005793
 streams_count = 1
 stream_0/stream = ExtResource("7_r44w0")
 
-[node name="Symbols" type="Node2D" unique_id=1578316535]
+[node name="Symbols" type="Node2D" unique_id=452912837]
 script = ExtResource("1_ws2qj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=293219898]
@@ -64,7 +64,7 @@ shape = SubResource("CircleShape2D_ws2qj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=109568494]
 position = Vector2(576, 127)
-rotation = 3.1415927
+rotation = -3.1415925
 scale = Vector2(0.20001079, 0.20001079)
 texture = ExtResource("6_o5rfj")
 

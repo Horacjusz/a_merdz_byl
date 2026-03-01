@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://6g2egtplwa7e" path="res://assets/riddles_asset/Colormeter_slider.png" id="6_42suw"]
 [ext_resource type="Texture2D" uid="uid://c6k20vjq0sp4" path="res://assets/riddles_asset/Arrow_asset.png" id="6_o7v1l"]
 
-[node name="MashSlider" type="Node2D" unique_id=1674942122]
+[node name="MashSlider" type="Node2D" unique_id=1526741285]
 script = ExtResource("1_8c2yd")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=389297898]

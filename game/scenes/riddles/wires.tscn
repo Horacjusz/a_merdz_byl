@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cuvtd8u601sis" path="res://scripts/wire.gd" id="5_6atpe"]
 [ext_resource type="Texture2D" uid="uid://pasmthxr7xwt" path="res://assets/riddles_asset/Red_left_asset.png" id="6_fn1mj"]
 [ext_resource type="Texture2D" uid="uid://byohcvt7h62nu" path="res://assets/riddles_asset/Green_left_asset.png" id="7_n1c3d"]
-[ext_resource type="Script" uid="uid://bv4kbgk6mi6qk" path="res://scripts/redslot.gd" id="8_gu52q"]
+[ext_resource type="Script" path="res://scripts/redslot.gd" id="8_gu52q"]
 [ext_resource type="Texture2D" uid="uid://bw0yxcoy0mm55" path="res://assets/riddles_asset/Cable_red_inactive_slot_asset.png" id="9_8lbgw"]
 [ext_resource type="Texture2D" uid="uid://b6rexyc875igt" path="res://assets/riddles_asset/Cable_green_inactive_slot_asset.png" id="10_yrda2"]
 [ext_resource type="Texture2D" uid="uid://bha277ghbjnve" path="res://assets/riddles_asset/Cable_blue_inactive_slot_asset.png" id="11_57rhe"]

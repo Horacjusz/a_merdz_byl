@@ -22,6 +22,7 @@ var circle_symbols: Array
 var positions := [0, 0, 0]
 
 func _ready() -> void:
+	super._ready()
 	shuffle_symbols()
 	for i in range(3):
 		add_symbols(circles[i], circle_symbols[i], RADIUSES[i])
