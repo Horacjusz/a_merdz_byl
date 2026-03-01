@@ -154,10 +154,14 @@ func _on_map_map_opened() -> void:
 func _on_map_map_closed() -> void:
 	#map.close()
 	bar.change(true)
-	current_level.hide_map()
 
 
 func _on_bar_insanity_reached() -> void:
 	await cutscene.play_insane_ending()
 	exit_game()
 	pass # Replace with function body.
+
+
+func _on_bar_bar_expired() -> void:
+	if current_level:
+		current_level.hide_map()
