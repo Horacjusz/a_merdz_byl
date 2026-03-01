@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgoyj63c3ygiv" path="res://scenes/ui/menus/main_menu.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://dij1mw4v5tynn" path="res://scenes/map.tscn" id="4_tipki"]
 [ext_resource type="Script" uid="uid://foyruhtg56ag" path="res://scripts/map.gd" id="5_85g3d"]
-[ext_resource type="PackedScene" path="res://scenes/transition_screen.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dd5omx0rjex7" path="res://scenes/transition_screen.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=297181464]
 script = ExtResource("1_o5qli")
@@ -17,6 +17,8 @@ script = ExtResource("1_o5qli")
 
 [node name="Player" parent="World" unique_id=211872251 instance=ExtResource("3_sugp2")]
 position = Vector2(574, 323)
+collision_layer = 3
+collision_mask = 3
 
 [node name="HUD" type="CanvasLayer" parent="World" unique_id=1099977074]
 

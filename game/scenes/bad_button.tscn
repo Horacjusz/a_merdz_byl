@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://p7csq4na4lm4"]
+
+[ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="1_nhaqc"]
+[ext_resource type="Texture2D" uid="uid://tpc0qt0ohaqc" path="res://assets/riddles_asset/Broken_button_asset.png" id="2_luvaj"]
+[ext_resource type="Texture2D" uid="uid://2be8veid58jg" path="res://assets/riddles_asset/Broken_push_asset.png" id="3_pd4wt"]
+
+[node name="Bad_button" type="Sprite2D" unique_id=222468981]
+texture = ExtResource("1_nhaqc")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=849927719]
+offset_left = -254.0
+offset_top = -229.0
+offset_right = 269.0
+offset_bottom = 227.0
+texture_normal = ExtResource("2_luvaj")
+texture_pressed = ExtResource("3_pd4wt")
