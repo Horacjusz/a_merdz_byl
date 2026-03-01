@@ -5,6 +5,7 @@ signal start_button_pressed()
 signal exit_button_pressed()
 
 @onready var main_menu: VBoxContainer = $MainMenuContainer
+@onready var tutorial_menu: Control = $TutorialMenu
 @onready var options_menu: Control = $OptionsMenu
 @onready var credits_menu: Control = $CreditsMenu
 @onready var start_button: TextureButton = $MainMenuContainer/GridContainer/StartButton
@@ -59,10 +60,18 @@ func _on_options_menu_exit_options_menu() -> void:
 
 
 func _on_credits_menu_exit_credits_menu() -> void:
-	credits_menu.visible = false
 	main_menu.visible = true
+	credits_menu.visible = false
 	$SelectionClick.play()
 
 
 func _on_tutorial_button_pressed() -> void:
+	tutorial_menu.visible = true
+	main_menu.visible = false
+	$SelectionClick.play()
+
+
+func _on_tutorial_menu_exit_tutorial_menu() -> void:
+	tutorial_menu.visible = false
+	main_menu.visible = true
 	$SelectionClick.play()

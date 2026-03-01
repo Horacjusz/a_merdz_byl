@@ -5,5 +5,5 @@ signal exit_credits_menu
 
 
 func _on_back_button_pressed() -> void:
-	$SelectionClick.play()
 	exit_credits_menu.emit()
+	$SelectionClick.play()
