@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://2dnv41vr3ncl"]
+
+[ext_resource type="Texture2D" uid="uid://datlthdefqwxy" path="res://assets/riddles_asset/Button_F_asset.png" id="1_ktdme"]
+
+[node name="F-button" type="Sprite2D" unique_id=900367709]
+texture = ExtResource("1_ktdme")

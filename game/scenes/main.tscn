@@ -17,6 +17,8 @@ script = ExtResource("1_o5qli")
 
 [node name="Player" parent="World" unique_id=211872251 instance=ExtResource("3_sugp2")]
 position = Vector2(574, 323)
+collision_layer = 3
+collision_mask = 3
 
 [node name="HUD" type="CanvasLayer" parent="World" unique_id=1099977074]
 
