@@ -11,7 +11,6 @@ extends Level
 @onready var note_2: Area2D = $note2
 @onready var note_3: Area2D = $note3
 @onready var ink: Area2D = $ink
-@onready var animation_player: AnimationPlayer = $guzik1/AnimationPlayer
 
 var g1 = false
 var g2 = false
