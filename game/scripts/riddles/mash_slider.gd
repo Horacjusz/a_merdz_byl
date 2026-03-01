@@ -13,6 +13,7 @@ func _ready():
 
 func jump() -> void:
 	velocity = MAX_VELOCITY
+	$TextureButton/ButtonClick.play()
 
 func get_height() -> float:
 	var pos: float = $Slider/Indicator.position.y
@@ -36,5 +37,12 @@ func _process(delta: float) -> void:
 	if score < 0: score = 0
 	if $Indicator/Arrow.rotation < PI/2:
 		$Indicator/Arrow.rotation = -PI/2 + score * PI
+	
+	var sound := $ArrowSound
+	sound.pitch_scale = 0.5 + 2 * score
+	if score >= 1:
+		sound.volume_db = -INF
+	elif (0 < score and score < 1) and not sound.playing:
+		sound.play()
 	
 	if score >= 1: solve()
