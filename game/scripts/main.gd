@@ -82,7 +82,7 @@ func _position_player_at_door(target_door_id: String):
 
 	for door in doors_node.get_children():
 		if door.door_id == target_door_id and door.has_node("Spawn"):
-			player.global_position = door.get_node("Spawn").global_position
+			player.change_global_position(door.get_node("Spawn").global_position)
 			return
 
 	push_warning("Door with id '%s' not found!" % target_door_id)
