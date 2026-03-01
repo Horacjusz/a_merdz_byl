@@ -10,6 +10,7 @@ func _ready() -> void:
 	audio_player.set_stream(
 		load("res://assets/sounds/Riddles/level-complete.mp3")
 	)
+	audio_player.bus = &"VFX"
 	add_child(audio_player)
 
 func solve():

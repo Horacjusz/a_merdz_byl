@@ -41,7 +41,7 @@ func start_game() -> void:
 	main_menu.change_to_pause_menu()
 	await cutscene.play_prologue()
 	player.visible = true
-	LevelManager.request_level("level_1", "start", true)
+	LevelManager.request_level("level_1", "entrance", true)
 
 
 func pause_game() -> void:
