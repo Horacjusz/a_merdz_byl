@@ -118,3 +118,10 @@ func _on_map_map_clicked() -> void:
 	current_level.change_world()
 	
 	pass # Replace with function body.
+
+
+func _on_player_sip_taken(sip_value: float) -> void:
+	print(sip_value)
+	bar.increase(-sip_value)
+	
+	pass # Replace with function body.

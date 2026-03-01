@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cjhxacm6um3fl" path="res://assets/map_asset/Tilemap.png" id="1_jp5fc"]
 [ext_resource type="Script" uid="uid://c2crc5eg6xj58" path="res://scripts/footstep_tilemap.gd" id="2_4ptlp"]
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="2_yluh8"]
-[ext_resource type="PackedScene" uid="uid://2dnv41vr3ncl" path="res://scenes/f_button.tscn" id="5_ycf23"]
-[ext_resource type="PackedScene" uid="uid://p7csq4na4lm4" path="res://scenes/bad_button.tscn" id="6_4lw2e"]
-[ext_resource type="PackedScene" uid="uid://clicfed6oj751" path="res://scenes/good_button.tscn" id="7_bqmi1"]
+[ext_resource type="PackedScene" path="res://scenes/f_button.tscn" id="5_ycf23"]
+[ext_resource type="PackedScene" path="res://scenes/bad_button.tscn" id="6_4lw2e"]
+[ext_resource type="PackedScene" path="res://scenes/good_button.tscn" id="7_bqmi1"]
+[ext_resource type="PackedScene" uid="uid://cqnmaugvff38g" path="res://scenes/fountain.tscn" id="8_bqmi1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ld261"]
 texture = ExtResource("1_jp5fc")
@@ -205,6 +206,9 @@ scale = Vector2(0.41372502, 0.41372502)
 visible = false
 position = Vector2(535.4488, 325.99435)
 scale = Vector2(0.41705984, 0.41705984)
+
+[node name="Fountain" parent="." unique_id=167944169 instance=ExtResource("8_bqmi1")]
+position = Vector2(952, 54)
 
 [connection signal="body_entered" from="guzik1" to="." method="_on_guzik_1_body_entered"]
 [connection signal="body_exited" from="guzik1" to="." method="_on_guzik_1_body_exited"]

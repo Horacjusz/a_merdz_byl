@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqnmaugvff38g"]
 
-[ext_resource type="PackedScene" uid="uid://dftrpkfy22rxb" path="res://scenes/Player.tscn" id="1_50hkb"]
 [ext_resource type="Script" uid="uid://bfeb2iftb3jat" path="res://scripts/fountain.gd" id="1_m72p2"]
+[ext_resource type="Script" uid="uid://2vw8xb3xra2q" path="res://scripts/Fountain_interact.gd" id="2_xo7qt"]
 [ext_resource type="PackedScene" path="res://scenes/f_button.tscn" id="3_lfgns"]
 [ext_resource type="AudioStream" uid="uid://co4dulatngutx" path="res://assets/sounds/Fountain/freesound_community-small-fountain-7073.mp3" id="4_uterx"]
 [ext_resource type="AudioStream" uid="uid://bctbgw1wfmeqh" path="res://assets/sounds/Fountain/drinking.mp3" id="5_xo7qt"]
@@ -13,12 +13,10 @@ radius = 303.08084
 script = ExtResource("1_m72p2")
 
 [node name="Range" type="Area2D" parent="." unique_id=1421986642]
+script = ExtResource("2_xo7qt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=673113810]
 shape = SubResource("CircleShape2D_m72p2")
-
-[node name="Player" parent="." unique_id=211872251 instance=ExtResource("1_50hkb")]
-position = Vector2(365, 9)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=941659859]
 

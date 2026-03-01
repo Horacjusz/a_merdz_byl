@@ -7,12 +7,13 @@ signal bar_started
 @onready var inside: Sprite2D = $Inside
 @onready var secondary_inside: Sprite2D = $Secondary_Inside
 
+const EPSILON = 0.001
 var Y_TRAVEL := 120.0 * scale.y
 var CLIP_HEIGHT := 50 * scale.y
 var BAR_FREEZED = false
 
 # travel_rate is showing how much bar is gonna raise in 1 second
-@export var travel_rate := 0.1
+@export var travel_rate := 0.05
 var _target_percentage: float = 0.0
 var _secondary_target: float = 0.0
 var value: float = 0.0
@@ -41,13 +42,8 @@ func change(another_world: bool) :
 	else:
 		unfreeze()
 
-
-
-func take_a_sip(sip_value: float) -> void :
-	increase(-sip_value)
-
 func increase(increase_value: float) -> void:
-	_target_percentage = clamp(_target_percentage + increase_value, 0.0, 1.0)
+	_target_percentage = clamp(value + increase_value, 0.0, 1.0)
 	unfreeze()
 
 func _set_position_to_value() -> void:
@@ -66,9 +62,13 @@ func _update_clip(insider) -> void:
 func _process(delta: float) -> void:
 	if not BAR_FREEZED :
 		var difference := _target_percentage - value
-		if difference != 0.0:
+		if abs(difference) > EPSILON :
 			value = clamp(value + travel_rate * delta * sign(difference), 0.0, 1.0)
 			_set_position_to_value()
+		else :
+			increase(1)
+			freeze()
+			
 		_update_clip(inside)
 		
 	var secondary_difference := _secondary_target - secondary_value
@@ -81,6 +81,3 @@ func _process(delta: float) -> void:
 		bar_expired.emit()
 	if value == 1 :
 		insanity_reached.emit()
-	if value == 0 :
-		increase(1)
-		freeze()
