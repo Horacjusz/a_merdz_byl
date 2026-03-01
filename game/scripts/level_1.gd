@@ -1,4 +1,4 @@
-extends Node2D
+extends Level
 
 @onready var normal: TileMapLayer = $Normal
 @onready var strange: TileMapLayer = $Strange
@@ -14,15 +14,20 @@ extends Node2D
 var g1 = false
 var g2 = false
 var sl = false
-var another_world = false
 
-func change_world() :
-	another_world = !another_world
-	
-	strange.collision_enabled = !strange.collision_enabled
-	strange.visible = !strange.visible
-	normal.collision_enabled = !normal.collision_enabled
-	normal.visible = !normal.visible
+
+func reveal_map(ink_level: int = 0) -> void:
+	strange.collision_enabled = true
+	strange.visible = true
+	normal.collision_enabled = false
+	normal.visible = false
+
+
+func hide_map() -> void:
+	strange.collision_enabled = false
+	strange.visible = false
+	normal.collision_enabled = true
+	normal.visible = true
 
 
 func _on_guzik_1_body_entered(body: Node2D) -> void:
