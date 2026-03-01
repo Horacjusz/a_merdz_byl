@@ -12,6 +12,7 @@ var texid = 0
 
 
 func _on_arrow_up_pressed() -> void:
+	$Click.play()
 	texid+=1
 	if texid>5:
 		texid=0
@@ -19,6 +20,7 @@ func _on_arrow_up_pressed() -> void:
 
 
 func _on_arrow_down_pressed() -> void:
+	$Click.play()
 	texid-=1
 	if texid<0:
 		texid=5

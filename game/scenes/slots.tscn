@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dtyfaeylu0qju" path="res://assets/riddles_asset/riddles_stone/arrow_up_hover.png" id="5_fbtk4"]
 [ext_resource type="Texture2D" uid="uid://dcqawepr687jw" path="res://assets/riddles_asset/riddles_stone/arrow_down.png" id="6_58wj5"]
 [ext_resource type="Texture2D" uid="uid://b0hibcse505fr" path="res://assets/riddles_asset/riddles_stone/arrow_down_hover.png" id="7_5g6lb"]
+[ext_resource type="AudioStream" uid="uid://ca7r5b3eotqg3" path="res://assets/sounds/Riddles/fast-stone-slide.mp3" id="11_5hphk"]
 
 [node name="slots" type="Sprite2D" unique_id=842284699]
 texture = ExtResource("1_wmvve")
@@ -40,6 +41,9 @@ offset_bottom = 397.09488
 texture_normal = ExtResource("6_58wj5")
 texture_hover = ExtResource("7_5g6lb")
 
+[node name="Click" type="AudioStreamPlayer" parent="Sprite2D/stone1" unique_id=864976102]
+stream = ExtResource("11_5hphk")
+
 [node name="stone2" type="Sprite2D" parent="Sprite2D" unique_id=597287735]
 position = Vector2(-4.3604965, -14.534992)
 texture = ExtResource("3_dlq1d")
@@ -61,6 +65,9 @@ offset_bottom = 397.09488
 texture_normal = ExtResource("6_58wj5")
 texture_hover = ExtResource("7_5g6lb")
 
+[node name="Click" type="AudioStreamPlayer" parent="Sprite2D/stone2" unique_id=835738844]
+stream = ExtResource("11_5hphk")
+
 [node name="stone3" type="Sprite2D" parent="Sprite2D" unique_id=1837018913]
 position = Vector2(529.0737, -4.360498)
 texture = ExtResource("3_dlq1d")
@@ -81,6 +88,9 @@ offset_right = 25.13903
 offset_bottom = 397.09488
 texture_normal = ExtResource("6_58wj5")
 texture_hover = ExtResource("7_5g6lb")
+
+[node name="Click" type="AudioStreamPlayer" parent="Sprite2D/stone3" unique_id=1192895553]
+stream = ExtResource("11_5hphk")
 
 [connection signal="pressed" from="Sprite2D/stone1/arrow_up" to="Sprite2D/stone1" method="_on_arrow_up_pressed"]
 [connection signal="pressed" from="Sprite2D/stone1/arrow_down" to="Sprite2D/stone1" method="_on_arrow_down_pressed"]
