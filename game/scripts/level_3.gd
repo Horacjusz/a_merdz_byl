@@ -33,7 +33,7 @@ func hide_map() -> void:
 
 
 func _on_note_body_entered(body: Node2D) -> void:
-	pickup.show_clue2()
+	pickup.show_clue3()
 
 func _on_zagadka_body_entered(body: Node2D) -> void:
 	f_button.show()
