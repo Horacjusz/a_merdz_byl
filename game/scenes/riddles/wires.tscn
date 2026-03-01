@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://v5a5f0p2uw35"]
 
 [ext_resource type="Script" uid="uid://b1ia4ejsruiaq" path="res://scripts/wires.gd" id="1_fqytr"]
+[ext_resource type="Texture2D" uid="uid://dvu03frtinp62" path="res://assets/gui_asset/Background_riddles .png" id="2_fn1mj"]
 [ext_resource type="Texture2D" uid="uid://cvsoryoc4bhfs" path="res://assets/riddles_asset/Cable_bg_asset.png" id="2_xl610"]
+[ext_resource type="Texture2D" uid="uid://dtmtmmr4ovwnl" path="res://assets/gui_asset/Background_riddles_frame.png" id="3_n1c3d"]
 [ext_resource type="Texture2D" uid="uid://c1kiuoq8rhpfs" path="res://assets/riddles_asset/Cable_slot_asset.png" id="3_ue6t5"]
 [ext_resource type="Texture2D" uid="uid://f2xjnrk3bkrr" path="res://assets/riddles_asset/Blue_left_asset.png" id="4_ag4ka"]
+[ext_resource type="Texture2D" uid="uid://b1ld2df6k4ssp" path="res://assets/gui_asset/Background_riddles_vine.png" id="4_gu52q"]
 [ext_resource type="Script" uid="uid://cuvtd8u601sis" path="res://scripts/wire.gd" id="5_6atpe"]
 [ext_resource type="Texture2D" uid="uid://pasmthxr7xwt" path="res://assets/riddles_asset/Red_left_asset.png" id="6_fn1mj"]
-[ext_resource type="AudioStream" uid="uid://3rxb8okhykuw" path="res://assets/sounds/Riddles/electricity.mp3" id="6_xl610"]
+[ext_resource type="AudioStream" uid="uid://buyyyn2jo1nuf" path="res://assets/sounds/Riddles/electricity.mp3" id="6_xl610"]
 [ext_resource type="Texture2D" uid="uid://byohcvt7h62nu" path="res://assets/riddles_asset/Green_left_asset.png" id="7_n1c3d"]
 [ext_resource type="AudioStream" uid="uid://dl6ffy83ike41" path="res://assets/sounds/Riddles/click.mp3" id="7_ue6t5"]
-[ext_resource type="Script" path="res://scripts/redslot.gd" id="8_gu52q"]
+[ext_resource type="Script" uid="uid://bv4kbgk6mi6qk" path="res://scripts/redslot.gd" id="8_gu52q"]
 [ext_resource type="Texture2D" uid="uid://bw0yxcoy0mm55" path="res://assets/riddles_asset/Cable_red_inactive_slot_asset.png" id="9_8lbgw"]
 [ext_resource type="Texture2D" uid="uid://b6rexyc875igt" path="res://assets/riddles_asset/Cable_green_inactive_slot_asset.png" id="10_yrda2"]
 [ext_resource type="Texture2D" uid="uid://bha277ghbjnve" path="res://assets/riddles_asset/Cable_blue_inactive_slot_asset.png" id="11_57rhe"]
@@ -24,6 +27,19 @@ size = Vector2(48, 92)
 
 [node name="Wires" type="Node2D" unique_id=2055278583]
 script = ExtResource("1_fqytr")
+
+[node name="backbackground" type="Sprite2D" parent="." unique_id=1262436924]
+position = Vector2(586, 307)
+scale = Vector2(0.80523336, 0.80523336)
+texture = ExtResource("2_fn1mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="backbackground" unique_id=358968114]
+texture = ExtResource("3_n1c3d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="backbackground" unique_id=332054693]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("4_gu52q")
 
 [node name="background" type="Sprite2D" parent="." unique_id=833652485]
 position = Vector2(588, 325)
