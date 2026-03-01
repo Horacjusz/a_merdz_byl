@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://ced105r81hntm"]
+
+[ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="1_wmvve"]
+[ext_resource type="Script" uid="uid://bt86j70o6kr0v" path="res://scripts/slots.gd" id="2_dlq1d"]
+[ext_resource type="Texture2D" uid="uid://6i5524inde0t" path="res://assets/riddles_asset/riddles_stone/background_stone.png" id="2_r14jf"]
+[ext_resource type="Texture2D" uid="uid://btvoo5knh8e4v" path="res://assets/riddles_asset/riddles_stone/blank_ornamnet.png" id="3_dlq1d"]
+[ext_resource type="Texture2D" uid="uid://bukl2gf2tk44" path="res://assets/riddles_asset/riddles_stone/arrow_up.png" id="4_5hphk"]
+[ext_resource type="Script" uid="uid://b745hn48busqo" path="res://scripts/stone.gd" id="4_wmvve"]
+[ext_resource type="Texture2D" uid="uid://dtyfaeylu0qju" path="res://assets/riddles_asset/riddles_stone/arrow_up_hover.png" id="5_fbtk4"]
+[ext_resource type="Texture2D" uid="uid://dcqawepr687jw" path="res://assets/riddles_asset/riddles_stone/arrow_down.png" id="6_58wj5"]
+[ext_resource type="Texture2D" uid="uid://b0hibcse505fr" path="res://assets/riddles_asset/riddles_stone/arrow_down_hover.png" id="7_5g6lb"]
+
+[node name="slots" type="Sprite2D" unique_id=842284699]
+texture = ExtResource("1_wmvve")
+script = ExtResource("2_dlq1d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72159612]
+position = Vector2(2, 11)
+scale = Vector2(0.68799484, 0.68799484)
+texture = ExtResource("2_r14jf")
+
+[node name="stone1" type="Sprite2D" parent="Sprite2D" unique_id=485614315]
+position = Vector2(-584.3067, 18.89549)
+texture = ExtResource("3_dlq1d")
+script = ExtResource("4_wmvve")
+
+[node name="arrow_up" type="TextureButton" parent="Sprite2D/stone1" unique_id=747404902]
+offset_left = -65.40747
+offset_top = -408.43332
+offset_right = 26.59253
+offset_bottom = -258.43332
+texture_normal = ExtResource("4_5hphk")
+texture_hover = ExtResource("5_fbtk4")
+
+[node name="arrow_down" type="TextureButton" parent="Sprite2D/stone1" unique_id=158063351]
+offset_left = -66.86097
+offset_top = 247.09488
+offset_right = 25.13903
+offset_bottom = 397.09488
+texture_normal = ExtResource("6_58wj5")
+texture_hover = ExtResource("7_5g6lb")
+
+[node name="stone2" type="Sprite2D" parent="Sprite2D" unique_id=597287735]
+position = Vector2(-4.3604965, -14.534992)
+texture = ExtResource("3_dlq1d")
+script = ExtResource("4_wmvve")
+
+[node name="arrow_up" type="TextureButton" parent="Sprite2D/stone2" unique_id=1331280324]
+offset_left = -65.40747
+offset_top = -408.43332
+offset_right = 26.59253
+offset_bottom = -258.43332
+texture_normal = ExtResource("4_5hphk")
+texture_hover = ExtResource("5_fbtk4")
+
+[node name="arrow_down" type="TextureButton" parent="Sprite2D/stone2" unique_id=1067280995]
+offset_left = -66.86097
+offset_top = 247.09488
+offset_right = 25.13903
+offset_bottom = 397.09488
+texture_normal = ExtResource("6_58wj5")
+texture_hover = ExtResource("7_5g6lb")
+
+[node name="stone3" type="Sprite2D" parent="Sprite2D" unique_id=1837018913]
+position = Vector2(529.0737, -4.360498)
+texture = ExtResource("3_dlq1d")
+script = ExtResource("4_wmvve")
+
+[node name="arrow_up" type="TextureButton" parent="Sprite2D/stone3" unique_id=1111311300]
+offset_left = -65.40747
+offset_top = -408.43332
+offset_right = 26.59253
+offset_bottom = -258.43332
+texture_normal = ExtResource("4_5hphk")
+texture_hover = ExtResource("5_fbtk4")
+
+[node name="arrow_down" type="TextureButton" parent="Sprite2D/stone3" unique_id=1932444067]
+offset_left = -66.86097
+offset_top = 247.09488
+offset_right = 25.13903
+offset_bottom = 397.09488
+texture_normal = ExtResource("6_58wj5")
+texture_hover = ExtResource("7_5g6lb")
+
+[connection signal="pressed" from="Sprite2D/stone1/arrow_up" to="Sprite2D/stone1" method="_on_arrow_up_pressed"]
+[connection signal="pressed" from="Sprite2D/stone1/arrow_down" to="Sprite2D/stone1" method="_on_arrow_down_pressed"]
+[connection signal="pressed" from="Sprite2D/stone2/arrow_up" to="Sprite2D/stone2" method="_on_arrow_up_pressed"]
+[connection signal="pressed" from="Sprite2D/stone2/arrow_down" to="Sprite2D/stone2" method="_on_arrow_down_pressed"]
+[connection signal="pressed" from="Sprite2D/stone3/arrow_up" to="Sprite2D/stone3" method="_on_arrow_up_pressed"]
+[connection signal="pressed" from="Sprite2D/stone3/arrow_down" to="Sprite2D/stone3" method="_on_arrow_down_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cbiu3mf4f1xj1"]
+
+[ext_resource type="Texture2D" uid="uid://c6lrvljhoutvn" path="res://assets/riddles_asset/Note_floor_asset.png" id="1_t3yvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bnk6"]
+size = Vector2(65, 54)
+
+[node name="note" type="Area2D" unique_id=133286436]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1380205061]
+texture = ExtResource("1_t3yvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326266419]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_1bnk6")
