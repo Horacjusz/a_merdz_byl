@@ -55,5 +55,6 @@ layer = 10
 [connection signal="button_down" from="World/HUD/Map" to="World/HUD/Map" method="_on_button_down"]
 [connection signal="map_closed" from="World/HUD/Map" to="." method="_on_map_map_closed"]
 [connection signal="map_opened" from="World/HUD/Map" to="." method="_on_map_map_opened"]
+[connection signal="insanity_reached" from="World/HUD/Bar" to="." method="_on_bar_insanity_reached"]
 [connection signal="exit_button_pressed" from="UI/MainMenu" to="." method="_on_main_menu_exit_button_pressed"]
 [connection signal="start_button_pressed" from="UI/MainMenu" to="." method="_on_main_menu_start_button_pressed"]

@@ -13,7 +13,7 @@ var CLIP_HEIGHT := 50 * scale.y
 var BAR_FREEZED = false
 
 # travel_rate is showing how much bar is gonna raise in 1 second
-@export var travel_rate := 0.05
+@export var travel_rate := 0.2
 var _target_percentage: float = 0.0
 var _secondary_target: float = 0.0
 var value: float = 0.0
@@ -76,8 +76,7 @@ func _process(delta: float) -> void:
 		secondary_value = clamp(secondary_value + travel_rate * delta * sign(secondary_difference), 0.0, value)
 		_set_secondary_position_to_value()
 	_update_clip(secondary_inside)
-	
 	if secondary_value == 0 :
 		bar_expired.emit()
-	if value == 1 :
+	if abs(value - 1) < EPSILON :
 		insanity_reached.emit()

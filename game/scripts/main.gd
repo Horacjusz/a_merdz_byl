@@ -39,7 +39,7 @@ func start_game() -> void:
 	await transition_screen.transition_finished
 	main_menu.hide()
 	main_menu.change_to_pause_menu()
-	cutscene.play_prologue()
+	await cutscene.play_prologue()
 	player.visible = true
 	LevelManager.request_level("level_1", "start", true)
 
@@ -155,3 +155,9 @@ func _on_map_map_closed() -> void:
 	#map.close()
 	bar.change(true)
 	current_level.hide_map()
+
+
+func _on_bar_insanity_reached() -> void:
+	await cutscene.play_insane_ending()
+	exit_game()
+	pass # Replace with function body.
