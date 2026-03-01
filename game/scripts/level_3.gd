@@ -53,6 +53,7 @@ func _unhandled_input(event):
 
 
 func _on_symbols_solved() -> void:
+	Inventory.gain_crystal()
 	pass # Replace with function body.
 	#inventory add
 
