@@ -27,35 +27,42 @@ func change_to_pause_menu() -> void:
 
 func _on_start_button_pressed() -> void:
 	start_button_pressed.emit()
+	$SelectionClick.play()
 
 
 func _on_continue_button_pressed() -> void:
 	start_button_pressed.emit()
+	$SelectionClick.play()
 
 
 func _on_options_button_pressed() -> void:
 	main_menu.visible = false
 	options_menu.visible = true
+	$SelectionClick.play()
 
 
 func _on_credits_button_pressed() -> void:
 	main_menu.visible = false
 	credits_menu.visible = true
+	$SelectionClick.play()
 
 
 func _on_exit_button_pressed() -> void:
 	exit_button_pressed.emit()
+	$SelectionClick.play()
 
 
 func _on_options_menu_exit_options_menu() -> void:
 	options_menu.visible = false
 	main_menu.visible = true
+	$SelectionClick.play()
 
 
 func _on_credits_menu_exit_credits_menu() -> void:
 	credits_menu.visible = false
 	main_menu.visible = true
+	$SelectionClick.play()
 
 
 func _on_tutorial_button_pressed() -> void:
-	pass # Replace with function body.
+	$SelectionClick.play()

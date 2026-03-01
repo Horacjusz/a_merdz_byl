@@ -5,13 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://dcosq1rk3wf4f" path="res://assets/menu_asset/menu_background.png" id="3_dhmlp"]
 [ext_resource type="PackedScene" uid="uid://ckkh5fe5kb1t0" path="res://scenes/ui/menus/options_menu.tscn" id="3_whicr"]
 [ext_resource type="Texture2D" uid="uid://bx8d6q1gbuf4p" path="res://assets/menu_asset/button_new_game.png" id="4_h4dpu"]
-[ext_resource type="PackedScene" uid="uid://njh127odqgw3" path="res://scenes/ui/custom_button.tscn" id="4_nmbxx"]
+[ext_resource type="PackedScene" path="res://scenes/ui/custom_button.tscn" id="4_nmbxx"]
 [ext_resource type="Texture2D" uid="uid://3yni6ohxbpw4" path="res://assets/menu_asset/button_continue.png" id="6_bl8wb"]
+[ext_resource type="AudioStream" uid="uid://d7fwjxhjvfx3" path="res://assets/sounds/Menu/hover.mp3" id="6_c8e1o"]
 [ext_resource type="Texture2D" uid="uid://bpr4k74p8ktn" path="res://assets/menu_asset/button_tutorial.png" id="6_nmbxx"]
 [ext_resource type="Texture2D" uid="uid://co61p3yctfeor" path="res://assets/menu_asset/button_options.png" id="7_bl8wb"]
 [ext_resource type="Texture2D" uid="uid://c4ryqr8pyu22c" path="res://assets/menu_asset/button_creators.png" id="8_c8e1o"]
 [ext_resource type="PackedScene" uid="uid://du680hayqsj08" path="res://scenes/ui/menus/credits_menu.tscn" id="8_jk7nv"]
 [ext_resource type="Texture2D" uid="uid://bjh74kc81cabb" path="res://assets/menu_asset/button_exit.png" id="9_e7y46"]
+[ext_resource type="AudioStream" uid="uid://dvv6s21gm8ovu" path="res://assets/sounds/Menu/creatorshome-digital-click-357350.mp3" id="13_bl8wb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smbs8"]
 atlas = ExtResource("4_h4dpu")
@@ -87,26 +89,50 @@ columns = 2
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_smbs8")
 
+[node name="HoverSound" type="AudioStreamPlayer" parent="MainMenuContainer/GridContainer/StartButton" unique_id=1773843757]
+stream = ExtResource("6_c8e1o")
+volume_db = 5.0
+
 [node name="ContinueButton" parent="MainMenuContainer/GridContainer" unique_id=1595256193 instance=ExtResource("4_nmbxx")]
 visible = false
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_h4dpu")
 
+[node name="HoverSound" type="AudioStreamPlayer" parent="MainMenuContainer/GridContainer/ContinueButton" unique_id=963789779]
+stream = ExtResource("6_c8e1o")
+volume_db = 5.0
+
 [node name="TutorialButton" parent="MainMenuContainer/GridContainer" unique_id=251610320 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_nmk8p")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="MainMenuContainer/GridContainer/TutorialButton" unique_id=599604508]
+stream = ExtResource("6_c8e1o")
+volume_db = 5.0
 
 [node name="OptionsButton" parent="MainMenuContainer/GridContainer" unique_id=1231411225 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_nmbxx")
 
+[node name="HoverSound" type="AudioStreamPlayer" parent="MainMenuContainer/GridContainer/OptionsButton" unique_id=386209710]
+stream = ExtResource("6_c8e1o")
+volume_db = 5.0
+
 [node name="CreditsButton" parent="MainMenuContainer/GridContainer" unique_id=345680808 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_bl8wb")
 
+[node name="HoverSound" type="AudioStreamPlayer" parent="MainMenuContainer/GridContainer/CreditsButton" unique_id=628703225]
+stream = ExtResource("6_c8e1o")
+volume_db = 5.0
+
 [node name="ExitButton" parent="MainMenuContainer" unique_id=1162526388 instance=ExtResource("4_nmbxx")]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_c8e1o")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="MainMenuContainer/ExitButton" unique_id=617260184]
+stream = ExtResource("6_c8e1o")
+volume_db = 5.0
 
 [node name="OptionsMenu" parent="." unique_id=2129501986 instance=ExtResource("3_whicr")]
 visible = false
@@ -124,6 +150,10 @@ offset_right = 259.0
 offset_bottom = 118.0
 scale = Vector2(2.050739, 2.050739)
 text = "My New Game"
+
+[node name="SelectionClick" type="AudioStreamPlayer" parent="." unique_id=622629786]
+stream = ExtResource("13_bl8wb")
+volume_db = -5.0
 
 [connection signal="pressed" from="MainMenuContainer/GridContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainMenuContainer/GridContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
