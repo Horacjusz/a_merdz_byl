@@ -13,7 +13,7 @@ var CLIP_HEIGHT := 50 * scale.y
 var BAR_FREEZED = false
 
 # travel_rate is showing how much bar is gonna raise in 1 second
-@export var travel_rate := 0.2
+@export var travel_rate := 0.02
 var _target_percentage: float = 0.0
 var _secondary_target: float = 0.0
 var value: float = 0.0
