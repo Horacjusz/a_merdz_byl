@@ -435,10 +435,12 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2061391602]
 libraries/ = SubResource("AnimationLibrary_gw3fx")
 autoplay = &"RESET"
+speed_scale = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=779252110]
 stream = ExtResource("7_nakos")
 volume_db = -7.0
+bus = &"VFX"
 
 [node name="Panel" type="Panel" parent="." unique_id=1660085359]
 self_modulate = Color(1, 1, 1, 0)

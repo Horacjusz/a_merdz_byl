@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-
 func _on_good_button_button_down() -> void:
+	$ButtonClick.play()
 	clicked.emit()

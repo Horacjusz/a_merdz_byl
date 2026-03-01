@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cax670d0albqo" path="res://scenes/ui/volume_slider.tscn" id="3_1mjwn"]
 [ext_resource type="Texture2D" uid="uid://43eidaalv3se" path="res://assets/menu_asset/arrow.png" id="4_f8sf1"]
 [ext_resource type="Texture2D" uid="uid://bdtnloog5q4vk" path="res://assets/menu_asset/VFX.png" id="5_1mjwn"]
+[ext_resource type="AudioStream" uid="uid://dvv6s21gm8ovu" path="res://assets/sounds/Menu/creatorshome-digital-click-357350.mp3" id="7_1mjwn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4xydh"]
 atlas = ExtResource("3_0gyrj")
@@ -83,5 +84,10 @@ size_flags_vertical = 4
 texture_normal = SubResource("AtlasTexture_5av45")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="SelectionClick" type="AudioStreamPlayer" parent="." unique_id=610236196]
+stream = ExtResource("7_1mjwn")
+volume_db = -5.0
+bus = &"VFX"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]

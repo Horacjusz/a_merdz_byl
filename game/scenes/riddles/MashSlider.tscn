@@ -32,6 +32,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="TextureButton" unique_id=1305109594]
 stream = ExtResource("5_j3qqp")
+bus = &"VFX"
 
 [node name="Slider" type="Sprite2D" parent="." unique_id=745835303]
 position = Vector2(404.608, 340)
@@ -56,6 +57,7 @@ offset = Vector2(0, -200)
 
 [node name="ArrowSound" type="AudioStreamPlayer" parent="." unique_id=1654937970]
 stream = ExtResource("9_bhf5j")
+bus = &"VFX"
 parameters/looping = true
 
 [connection signal="button_down" from="TextureButton" to="." method="jump"]
