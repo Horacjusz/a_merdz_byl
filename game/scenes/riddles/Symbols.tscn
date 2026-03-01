@@ -25,7 +25,7 @@ stream_0/stream = ExtResource("7_r44w0")
 [node name="Symbols" type="Node2D" unique_id=452912837]
 script = ExtResource("1_ws2qj")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=293219898]
+[node name="Background" type="Sprite2D" parent="." unique_id=293219898]
 position = Vector2(576, 324)
 scale = Vector2(0.55890656, 0.55890656)
 texture = ExtResource("1_bb2aw")
@@ -62,7 +62,7 @@ shape = SubResource("CircleShape2D_r44w0")
 [node name="OuterCollisionShape" type="CollisionShape2D" parent="Area2D" unique_id=36842717]
 shape = SubResource("CircleShape2D_ws2qj")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=109568494]
+[node name="Arrow" type="Sprite2D" parent="." unique_id=109568494]
 position = Vector2(576, 127)
 rotation = -3.1415925
 scale = Vector2(0.20001079, 0.20001079)
