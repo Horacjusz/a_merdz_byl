@@ -8,6 +8,7 @@ extends Node2D
 @onready var transition_screen: Control = $UI/TransitionScreen
 @onready var bar: Node2D = $World/HUD/Bar
 @onready var map: TextureButton = $World/HUD/Map
+@onready var popup_message: Node2D = $World/HUD/PopupMessage
 
 
 var current_level: Level = null
@@ -27,6 +28,10 @@ func _input(event) -> void:
 		else:
 			exit_game()
 
+func _process(delta: float) -> void:
+	if Inventory.check_display() :
+		popup_message.display(load("res://assets/gui_asset/info_frame4.png"))
+
 
 func start_game() -> void:
 	transition_screen.transition()
@@ -34,7 +39,7 @@ func start_game() -> void:
 	main_menu.hide()
 	main_menu.change_to_pause_menu()
 	player.visible = true
-	LevelManager.request_level("level_1", "start", true)
+	LevelManager.request_level("level_2", "entrance", true)
 
 
 func pause_game() -> void:
@@ -113,9 +118,10 @@ func _on_main_menu_exit_button_pressed() -> void:
 
 
 func _on_player_sip_taken(sip_value: float) -> void:
-	print(sip_value)
 	bar.increase(-sip_value)
-	
+	pass # Replace with function body.
+
+func _on_player_last_door_open() -> void:
 	pass # Replace with function body.
 
 

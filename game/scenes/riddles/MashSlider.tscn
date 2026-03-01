@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d13ryb8yngpfh" path="res://scripts/riddles/mash_slider.gd" id="1_8c2yd"]
 [ext_resource type="Texture2D" uid="uid://c0rdxc0e08gd1" path="res://assets/gui_asset/Background_riddles.png" id="2_ajxi1"]
-[ext_resource type="Texture2D" uid="uid://tpc0qt0ohaqc" path="res://assets/riddles_asset/Broken_button_asset.png" id="2_lx3n7"]
-[ext_resource type="Texture2D" uid="uid://2be8veid58jg" path="res://assets/riddles_asset/Broken_push_asset.png" id="3_ajxi1"]
+[ext_resource type="Texture2D" uid="uid://r76f57cl3rel" path="res://assets/riddles_asset/Normal_button_asset.png" id="3_j3qqp"]
+[ext_resource type="Texture2D" uid="uid://8o2hdm8wddev" path="res://assets/riddles_asset/Normal_pushed_asset.png" id="4_lry6g"]
 [ext_resource type="AudioStream" uid="uid://dxnhdmmgcm06g" path="res://assets/sounds/Buttons/universfield-click-button-140881.mp3" id="5_j3qqp"]
 [ext_resource type="Texture2D" uid="uid://b4ct3nkrj6212" path="res://assets/riddles_asset/Colormeter_asset.png" id="5_kywk7"]
 [ext_resource type="Texture2D" uid="uid://dbpwvptc7rodm" path="res://assets/riddles_asset/Colormeter_stripe.png" id="5_o7v1l"]
@@ -26,8 +26,8 @@ offset_right = 1211.0
 offset_bottom = 645.0
 scale = Vector2(0.2, 0.2)
 size_flags_vertical = 4
-texture_normal = ExtResource("2_lx3n7")
-texture_pressed = ExtResource("3_ajxi1")
+texture_normal = ExtResource("3_j3qqp")
+texture_pressed = ExtResource("4_lry6g")
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="TextureButton" unique_id=1305109594]

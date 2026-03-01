@@ -7,3 +7,4 @@ extends Riddle
 func _process(delta: float) -> void:
 	if stone_1.texid==5 and stone_2.texid==1 and stone_3.texid==4:
 		solve()
+		
