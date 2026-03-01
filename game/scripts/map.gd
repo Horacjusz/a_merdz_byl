@@ -1,10 +1,11 @@
 extends TextureButton
 
-@onready var tile_map1: TileMapLayer = $"../../TileMapLayer"
-@onready var tile_map2: TileMapLayer = $"../../TileMapLayer2"
+signal map_clicked
+
+@onready var level_container: Node2D = $"../../World/LevelContainer"
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bar: Node2D = $"../Bar"
-
 
 var another_world=false
 
@@ -16,18 +17,11 @@ func _process(delta: float) -> void:
 	pass
 	
 
-
-
-func _on_button_down() -> void:
+func change(another_world: bool) :
 	if another_world:
 		animation_player.play("zwin")
-		bar.freeze()
 	else:
 		animation_player.play("rozwin")
-		bar.start()
-	
-	another_world = !another_world
-	tile_map2.collision_enabled = !tile_map2.collision_enabled
-	tile_map2.visible = !tile_map2.visible
-	tile_map1.collision_enabled = tile_map1.collision_enabled
-	tile_map1.visible = !tile_map1.visible
+
+func _on_button_down() -> void:
+	map_clicked.emit()

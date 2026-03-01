@@ -6,13 +6,16 @@ extends Node2D
 @onready var player: CharacterBody2D = $World/Player
 @onready var main_menu: Control = $UI/MainMenu
 @onready var transition_screen: Control = $UI/TransitionScreen
+@onready var bar: Node2D = $World/HUD/Bar
+@onready var map: TextureButton = $World/HUD/Map
+
 
 var current_level: Node = null
 
 
 func _ready() -> void:
 	LevelManager.connect("level_requested", Callable(self, "_on_level_requested"))
-
+	
 
 func _input(event) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -31,7 +34,7 @@ func start_game() -> void:
 	main_menu.hide()
 	main_menu.change_to_pause_menu()
 	player.visible = true
-	LevelManager.request_level("level_1", "start", true)
+	LevelManager.request_level("level_test", "start", true)
 
 
 func pause_game() -> void:
@@ -107,3 +110,11 @@ func _on_main_menu_start_button_pressed() -> void:
 
 func _on_main_menu_exit_button_pressed() -> void:
 	exit_game()
+
+
+func _on_map_map_clicked() -> void:
+	map.change(current_level.another_world)
+	bar.change(current_level.another_world)
+	current_level.change_world()
+	
+	pass # Replace with function body.

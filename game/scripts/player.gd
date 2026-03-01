@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED: float = 100.0
+const SPEED: float = 200.0
 var STEP_DURATION: float = 0.3
 
 enum MOVE_DIRECTION { front, right, back, left }

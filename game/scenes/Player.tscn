@@ -154,7 +154,9 @@ script = ExtResource("1_v6fml")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=989287074]
 position = Vector2(1, 1.1920929e-07)
 sprite_frames = SubResource("SpriteFrames_khinc")
-animation = &"back"
+animation = &"idle_back"
+frame = 1
+frame_progress = 0.9763954
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203216081]
 position = Vector2(3.3333333, 10)
