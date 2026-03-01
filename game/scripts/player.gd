@@ -1,8 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
+signal sip_taken(sip_value: float)
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera: Camera2D = $Camera2D
+@onready var interaction_area: Area2D = $InteractionArea
 
 const SPEED: float = 200.0
 var STEP_DURATION: float = 0.3
@@ -102,6 +105,16 @@ func _physics_process(delta: float) -> void:
 
 	velocity = input_direction * SPEED
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("press_F_to_pay_respect") :
+		var overlapping = interaction_area.get_overlapping_areas()
+		for area in overlapping :
+			print(area)
+			if area.has_method("interact") :
+				area.interact(self)
+				
+func take_a_sip(sip_value: float) :
+	sip_taken.emit(sip_value)
 
 func _try_play_footstep() -> void:
 	if footstep_cooldown_left > 0.0:
