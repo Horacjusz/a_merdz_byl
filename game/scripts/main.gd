@@ -10,7 +10,7 @@ extends Node2D
 @onready var map: TextureButton = $World/HUD/Map
 
 
-var current_level: Node = null
+var current_level: Level = null
 
 
 func _ready() -> void:
@@ -34,7 +34,7 @@ func start_game() -> void:
 	main_menu.hide()
 	main_menu.change_to_pause_menu()
 	player.visible = true
-	LevelManager.request_level("level_test", "start", true)
+	LevelManager.request_level("level_1", "start", true)
 
 
 func pause_game() -> void:
@@ -112,16 +112,20 @@ func _on_main_menu_exit_button_pressed() -> void:
 	exit_game()
 
 
-func _on_map_map_clicked() -> void:
-	map.change(current_level.another_world)
-	bar.change(current_level.another_world)
-	current_level.change_world()
-	
-	pass # Replace with function body.
-
-
 func _on_player_sip_taken(sip_value: float) -> void:
 	print(sip_value)
 	bar.increase(-sip_value)
 	
 	pass # Replace with function body.
+
+
+func _on_map_map_opened() -> void:
+	map.open()
+	bar.change(false)
+	current_level.reveal_map()
+
+
+func _on_map_map_closed() -> void:
+	map.close()
+	bar.change(true)
+	current_level.hide_map()
