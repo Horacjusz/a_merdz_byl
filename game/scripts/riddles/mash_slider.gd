@@ -30,9 +30,9 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	var pos = get_height()
 	if 0.6 < pos and pos < 0.8:
-		score += 1 * delta
+		score += 0.5 * delta
 	else:
-		score -= 0.5 * delta
+		score -= 0.25 * delta
 	
 	if score < 0: score = 0
 	if $Indicator/Arrow.rotation < PI/2:
@@ -42,6 +42,8 @@ func _process(delta: float) -> void:
 	sound.pitch_scale = 0.5 + 2 * score
 	if score >= 1:
 		sound.volume_db = -INF
+	elif score == 0 and sound.playing:
+		sound.stop()
 	elif (0 < score and score < 1) and not sound.playing:
 		sound.play()
 	
