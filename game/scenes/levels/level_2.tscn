@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cbiu3mf4f1xj1" path="res://scenes/note.tscn" id="5_l37oo"]
 [ext_resource type="PackedScene" uid="uid://bnmajxwkr6vtw" path="res://scenes/pickup.tscn" id="6_ibugp"]
 [ext_resource type="PackedScene" uid="uid://blgjf8g5xak4d" path="res://scenes/riddles/MashSlider.tscn" id="6_qpwj6"]
-[ext_resource type="PackedScene" path="res://scenes/f_button.tscn" id="8_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://2dnv41vr3ncl" path="res://scenes/f_button.tscn" id="8_qsp8v"]
 [ext_resource type="PackedScene" uid="uid://p7csq4na4lm4" path="res://scenes/bad_button.tscn" id="9_nt80m"]
 [ext_resource type="PackedScene" uid="uid://clicfed6oj751" path="res://scenes/good_button.tscn" id="10_brxtv"]
-[ext_resource type="PackedScene" uid="uid://dc7fmwhug5fc" path="res://scenes/ink.tscn" id="11_nt80m"]
+[ext_resource type="PackedScene" path="res://scenes/ink.tscn" id="11_nt80m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsp8v"]
 size = Vector2(109, 115)
