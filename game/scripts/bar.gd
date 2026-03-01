@@ -1,5 +1,8 @@
 extends Node2D
 
+signal insanity_reached
+signal bar_expired
+
 @onready var inside: Sprite2D = $Inside
 @onready var secondary_inside: Sprite2D = $Secondary_Inside
 
@@ -66,3 +69,8 @@ func _process(delta: float) -> void:
 		secondary_value = clamp(secondary_value + travel_rate * delta * sign(secondary_difference), 0.0, value)
 		_set_secondary_position_to_value()
 	_update_clip(secondary_inside)
+	
+	if secondary_value == 0 :
+		bar_expired.emit()
+	if value == 1 :
+		insanity_reached.emit()
