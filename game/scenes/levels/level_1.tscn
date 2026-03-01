@@ -50,8 +50,8 @@ door_id = "start"
 position = Vector2(2295, 1151)
 rotation = -3.1415927
 door_id = "exit"
-target_level_id = "level_2"
-target_door_id = "start"
+target_level_id = "fountain_1"
+target_door_id = "entrance"
 
 [node name="guzik1" type="Area2D" parent="." unique_id=1874995758]
 collision_layer = 2

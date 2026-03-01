@@ -44,6 +44,8 @@ layer = 10
 [node name="MainMenu" parent="UI" unique_id=927219170 instance=ExtResource("4_jyhfs")]
 
 [node name="TransitionScreen" parent="UI" unique_id=553853311 instance=ExtResource("5_tbgi4")]
+offset_left = 1.0
+offset_right = 1.0
 
 [connection signal="last_door_open" from="World/Player" to="." method="_on_player_last_door_open"]
 [connection signal="sip_taken" from="World/Player" to="." method="_on_player_sip_taken"]

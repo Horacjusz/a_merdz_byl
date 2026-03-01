@@ -5,6 +5,8 @@ signal level_requested(target_level: String, target_door_id: String)
 var level_map := {
 	"level_1": preload("res://scenes/levels/level_1.tscn"),
 	"level_2": preload("res://scenes/levels/level_2.tscn"),
+	"fountain_1": preload("res://scenes/levels/level_fountain_1.tscn"),
+	"fountain_2": preload("res://scenes/levels/level_fountain_2.tscn"),
 }
 
 
