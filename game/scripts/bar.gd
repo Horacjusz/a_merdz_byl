@@ -2,6 +2,7 @@ extends Node2D
 
 signal insanity_reached
 signal bar_expired
+signal bar_started
 
 @onready var inside: Sprite2D = $Inside
 @onready var secondary_inside: Sprite2D = $Secondary_Inside
@@ -32,6 +33,7 @@ func freeze() :
 func unfreeze() :
 	BAR_FREEZED = false
 	_secondary_target = _target_percentage
+	bar_started.emit()
 
 func change(another_world: bool) :
 	if another_world:
