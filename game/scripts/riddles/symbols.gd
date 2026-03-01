@@ -22,6 +22,7 @@ var circle_symbols: Array
 var positions := [0, 0, 0]
 
 func _ready() -> void:
+	super._ready()
 	shuffle_symbols()
 	for i in range(3):
 		add_symbols(circles[i], circle_symbols[i], RADIUSES[i])
@@ -48,6 +49,7 @@ func handle_event(circle_idx: int, event: InputEvent):
 		while direction * circle.rotation < direction * rot:
 			circle.rotation += direction * TAU
 		
+		$AudioStreamPlayer.play()
 		var tween = get_tree().create_tween()
 		tween.tween_property(circle, "rotation", rot, 0.1)
 		await tween.finished

@@ -16,19 +16,20 @@ func _process(_delta: float) -> void:
 		var direction = mouse_pos - global_position
 		rotation = direction.angle() - 0.05
 		var distance = global_position.distance_to(mouse_pos)
-		scale.x = distance / 550.0
+		scale.x = distance / 300.0
 
 
 
 func _on_button_down() -> void:
 	holding = true
 	is_right = false
+	$Electricity.play()
 
 func _on_button_up() -> void:
 	holding = false
 	if is_in:
 		is_right=true
-		#print("jest")
+		$Click.play(0.09)
 
 
 
