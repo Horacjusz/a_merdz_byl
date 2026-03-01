@@ -70,5 +70,6 @@ texture = ExtResource("6_o5rfj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=309712949]
 stream = SubResource("AudioStreamRandomizer_13sum")
+bus = &"VFX"
 
 [connection signal="input_event" from="Area2D" to="." method="input_event"]

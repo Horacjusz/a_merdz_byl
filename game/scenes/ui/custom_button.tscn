@@ -133,6 +133,7 @@ speed_scale = 2.0
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1415705991]
 stream = ExtResource("3_njdmp")
 volume_db = 5.0
+bus = &"VFX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

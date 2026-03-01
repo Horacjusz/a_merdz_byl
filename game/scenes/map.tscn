@@ -439,6 +439,7 @@ autoplay = &"RESET"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=779252110]
 stream = ExtResource("7_nakos")
 volume_db = -7.0
+bus = &"VFX"
 
 [node name="Panel" type="Panel" parent="." unique_id=1660085359]
 self_modulate = Color(1, 1, 1, 0)
