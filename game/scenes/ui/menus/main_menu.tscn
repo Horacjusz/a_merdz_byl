@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckkh5fe5kb1t0" path="res://scenes/ui/menus/options_menu.tscn" id="3_whicr"]
 [ext_resource type="Texture2D" uid="uid://bx8d6q1gbuf4p" path="res://assets/menu_asset/button_new_game.png" id="4_h4dpu"]
 [ext_resource type="PackedScene" uid="uid://njh127odqgw3" path="res://scenes/ui/custom_button.tscn" id="4_nmbxx"]
+[ext_resource type="Texture2D" uid="uid://3yni6ohxbpw4" path="res://assets/menu_asset/button_continue.png" id="6_bl8wb"]
 [ext_resource type="Texture2D" uid="uid://bpr4k74p8ktn" path="res://assets/menu_asset/button_tutorial.png" id="6_nmbxx"]
 [ext_resource type="Texture2D" uid="uid://co61p3yctfeor" path="res://assets/menu_asset/button_options.png" id="7_bl8wb"]
 [ext_resource type="Texture2D" uid="uid://c4ryqr8pyu22c" path="res://assets/menu_asset/button_creators.png" id="8_c8e1o"]
@@ -17,7 +18,7 @@ atlas = ExtResource("4_h4dpu")
 region = Rect2(21, 30, 248, 127)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4dpu"]
-atlas = ExtResource("4_h4dpu")
+atlas = ExtResource("6_bl8wb")
 region = Rect2(21, 30, 248, 127)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nmk8p"]
