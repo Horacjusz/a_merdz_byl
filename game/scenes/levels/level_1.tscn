@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cpsi0vf8w83c0" path="res://scenes/door.tscn" id="2_6iamk"]
 [ext_resource type="TileSet" uid="uid://xsjlgnfasjfn" path="res://resources/tile_set.tres" id="2_excbq"]
 [ext_resource type="Script" uid="uid://c2crc5eg6xj58" path="res://scripts/footstep_tilemap.gd" id="3_iav0o"]
-[ext_resource type="PackedScene" path="res://scenes/f_button.tscn" id="5_dnkej"]
+[ext_resource type="PackedScene" uid="uid://2dnv41vr3ncl" path="res://scenes/f_button.tscn" id="5_dnkej"]
 [ext_resource type="PackedScene" uid="uid://p7csq4na4lm4" path="res://scenes/bad_button.tscn" id="6_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://clicfed6oj751" path="res://scenes/good_button.tscn" id="7_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://bnmajxwkr6vtw" path="res://scenes/pickup.tscn" id="9_bahl2"]
