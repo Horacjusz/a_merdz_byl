@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://btcjr2e00vkuf"]
 
+[ext_resource type="PackedScene" uid="uid://bl87kgow7t8pp" path="res://scenes/ui/custom_button.tscn" id="2_ka1ig"]
 [ext_resource type="Texture2D" uid="uid://43eidaalv3se" path="res://assets/menu_asset/arrow.png" id="3_byiv1"]
+[ext_resource type="Texture2D" uid="uid://bjh74kc81cabb" path="res://assets/menu_asset/button_exit.png" id="3_pc0ba"]
 
 [sub_resource type="GDScript" id="GDScript_iaidv"]
 script/source = "extends Control
 
 signal exit_tutorial_menu
 
-@onready var texture_rect: TextureRect = $TextureRect
-@onready var next_button: TextureButton = $MarginContainer/NextButton
+@onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/VBoxContainer2/TextureRect
+@onready var previous_button: TextureButton = $MarginContainer/VBoxContainer/HBoxContainer/PreviousButton
+@onready var next_button: TextureButton = $MarginContainer/VBoxContainer/HBoxContainer/NextButton
+@onready var back_button: TextureButton = $MarginContainer/VBoxContainer/HBoxContainer/BackButton
 
 const FOLDER_PATH := \"res://assets/tutorial_asset/\"
 const FILE_PREFIX := \"Tutorial\"
@@ -26,16 +30,8 @@ func _ready() -> void:
 		return
 
 	texture_rect.texture = slides[current_index]
-
-
-func _on_next_button_pressed() -> void:
-	current_index += 1
-
-	if current_index >= slides.size():
-		emit_signal(\"exit_tutorial_menu\")
-		return
-
-	texture_rect.texture = slides[current_index]
+	
+	previous_button.modulate.a = 0.0
 
 
 func build_slides_array() -> void:
@@ -51,7 +47,33 @@ func build_slides_array() -> void:
 
 		slides.append(load(path))
 		index += 1
+
+
+func _on_previous_button_pressed() -> void:
+	if current_index > 0:
+		current_index -= 1
+		texture_rect.texture = slides[current_index]
+		next_button.modulate.a = 1.0
+	else:
+		previous_button.modulate.a = 0.0
+
+
+func _on_next_button_pressed() -> void:
+	if current_index < slides.size() - 1:
+		current_index += 1
+		texture_rect.texture = slides[current_index]
+		previous_button.modulate.a = 1.0
+	else:
+		next_button.modulate.a = 0.0
+
+
+func _on_back_button_pressed() -> void:
+	exit_tutorial_menu.emit()
 "
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pxj0"]
+atlas = ExtResource("3_pc0ba")
+region = Rect2(21, 30, 248, 127)
 
 [node name="TutorialMenu" type="Control" unique_id=783237466]
 layout_mode = 3
@@ -60,6 +82,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 script = SubResource("GDScript_iaidv")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1851668999]
@@ -71,16 +95,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1464326330]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
-
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1399389993]
 layout_mode = 1
 anchors_preset = 15
@@ -88,14 +102,81 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="NextButton" type="TextureButton" parent="MarginContainer" unique_id=2020050140]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=945276085]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2127470803]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1464326330]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1049792045]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="PreviousButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=90649523]
 custom_minimum_size = Vector2(247, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("3_byiv1")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BackButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=100766507 instance=ExtResource("2_ka1ig")]
+custom_minimum_size = Vector2(124, 63.5)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_2pxj0")
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/BackButton" unique_id=165241760]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.142
+anchor_right = 0.81500006
+anchor_bottom = 0.85
+offset_left = -0.055999756
+offset_top = -0.017000198
+offset_right = -0.060005188
+offset_bottom = 0.024997711
+mouse_filter = 2
+color = Color(0.105882354, 0.0627451, 0.14901961, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/BackButton" unique_id=392785605]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="NextButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2020050140]
+custom_minimum_size = Vector2(247, 100)
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 8
 texture_normal = ExtResource("3_byiv1")
 ignore_texture_size = true
 stretch_mode = 5
 flip_h = true
 
-[connection signal="pressed" from="MarginContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

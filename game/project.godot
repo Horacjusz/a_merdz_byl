@@ -22,8 +22,8 @@ buses/default_bus_layout="uid://n6uqk1vc1sr1"
 [autoload]
 
 LevelManager="*uid://02ktbkkth47a"
-Inventory="*uid://dxdk186imfde8"
 FootstepSoundManager="*uid://bme557gdv5wj1"
+Inventory="*uid://dpw53yh72onpk"
 
 [debug]
 

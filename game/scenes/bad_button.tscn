@@ -22,4 +22,4 @@ texture_pressed = ExtResource("3_pd4wt")
 stream = ExtResource("5_pd4wt")
 bus = &"VFX"
 
-[connection signal="button_down" from="TextureButton" to="." method="_on_good_button_button_down"]
+[connection signal="button_down" from="TextureButton" to="." method="_on_button_down"]

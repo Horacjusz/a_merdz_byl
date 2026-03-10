@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://dc7fmwhug5fc"]
+[gd_scene format=3 uid="uid://bteivecmhisue"]
 
+[ext_resource type="Script" uid="uid://dku5ksleoaosw" path="res://scripts/ink.gd" id="1_fno4c"]
 [ext_resource type="Texture2D" uid="uid://nuxkhbw7uffa" path="res://assets/map_asset/ink.png" id="1_ooo7e"]
+[ext_resource type="AudioStream" uid="uid://blqwww6t1l7rj" path="res://assets/sounds/Riddles/level-complete.mp3" id="3_yve10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bnk6"]
 size = Vector2(65, 54)
@@ -8,6 +10,7 @@ size = Vector2(65, 54)
 [node name="ink" type="Area2D" unique_id=133286436]
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("1_fno4c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1380205061]
 scale = Vector2(0.29049605, 0.29049605)
@@ -16,3 +19,8 @@ texture = ExtResource("1_ooo7e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326266419]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_1bnk6")
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="." unique_id=315141928]
+stream = ExtResource("3_yve10")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

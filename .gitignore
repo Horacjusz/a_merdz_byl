@@ -16,6 +16,12 @@ data_*/
 mono_crash.*.json
 *.import
 
+<<<<<<< HEAD
 *.exe
 *.pck
 *export_presets.cfg
+=======
+# game binaries
+game/Game.exe
+game/Game.x86_64
+>>>>>>> main

@@ -11,7 +11,6 @@ extends Level
 @onready var note_2: Area2D = $note2
 @onready var note_3: Area2D = $note3
 @onready var ink: Area2D = $ink
-@onready var animation_player: AnimationPlayer = $guzik1/AnimationPlayer
 
 var g1 = false
 var g2 = false
@@ -91,10 +90,6 @@ func _on_note_3_body_entered(body: Node2D) -> void:
 func _on_slots_solved() -> void:
 	Inventory.gain_crystal()
 	pass # Replace with function body.
-
-func _on_ink_body_entered(body: Node2D) -> void:
-	Inventory.gain_crystal()
-	ink.hide()
 
 
 func _on_bad_button_clicked() -> void:
